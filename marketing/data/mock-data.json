@@ -1,0 +1,195 @@
+{
+  "settings": {
+    "language": "id",
+    "role": "Admin",
+    "marketing": {
+      "default_month": "2026-05"
+    }
+  },
+  "assets": [
+    {
+      "id": "ast_poster_001",
+      "name": "Poster Jual Sementara A5",
+      "type": "Poster Design",
+      "drive_link": "https://drive.google.com/",
+      "uploaded_at": "2026-05-01",
+      "created_by": "Marisa",
+      "tags": [
+        "poster",
+        "a5",
+        "promo"
+      ],
+      "used_in": [
+        {
+          "channel": "offline",
+          "ref_id": "off_001"
+        }
+      ],
+      "status": "Active",
+      "notes": "Desain poster utama"
+    },
+    {
+      "id": "ast_video_001",
+      "name": "Video Edukasi Tebus Motor",
+      "type": "Video Master",
+      "drive_link": "https://drive.google.com/",
+      "uploaded_at": "2026-05-04",
+      "created_by": "Aydin",
+      "tags": [
+        "edukasi",
+        "tiktok"
+      ],
+      "used_in": [
+        {
+          "channel": "tiktok_organic",
+          "ref_id": "vid_001"
+        }
+      ],
+      "status": "Active",
+      "notes": "Master konten edukasi"
+    }
+  ],
+  "offline_batches": [
+    {
+      "id": "off_001",
+      "spread_date": "2026-05-06",
+      "location": "Warung dan kos dekat pabrik",
+      "zone": "Kalisari",
+      "poster_qty": 150,
+      "design_asset_link": "https://drive.google.com/",
+      "print_cost": 840000,
+      "distribution_cost": 120000,
+      "pic": "Humam",
+      "proof_links": "https://drive.google.com/",
+      "tracking_code": "WA-KALISARI-01",
+      "status": "Aktif",
+      "notes": "Batch latihan awal",
+      "finance_journaled": false,
+      "created_at": "2026-05-06T08:00:00.000Z"
+    }
+  ],
+  "tiktok_videos": [
+    {
+      "id": "vid_001",
+      "upload_date": "2026-05-07",
+      "caption": "Cerita customer butuh dana cepat",
+      "video_url": "https://tiktok.com/",
+      "thumbnail_link": "https://drive.google.com/",
+      "content_type": "Edukasi",
+      "pic_creator": "Marisa",
+      "asset_source": "https://drive.google.com/",
+      "status": "Published",
+      "notes": "Story-based",
+      "created_at": "2026-05-07T10:00:00.000Z"
+    }
+  ],
+  "tiktok_video_metrics": [
+    {
+      "id": "vmet_001",
+      "video_id": "vid_001",
+      "snapshot_date": "2026-05-14",
+      "views": 1300,
+      "likes": 52,
+      "comments": 8,
+      "shares": 5,
+      "saves": 12,
+      "watch_time_avg": "7s",
+      "source": "manual"
+    }
+  ],
+  "tiktok_ads": [
+    {
+      "id": "tad_001",
+      "campaign_name": "TikTok Lead Test Kalisari",
+      "creative_link": "https://drive.google.com/",
+      "start_date": "2026-05-10",
+      "end_date": "2026-05-17",
+      "budget_total": 300000,
+      "budget_daily": 50000,
+      "objective": "Lead Gen",
+      "target_notes": "Pekerja sekitar Jakarta Timur",
+      "status": "Active",
+      "finance_journaled": false,
+      "created_at": "2026-05-10T00:00:00.000Z"
+    }
+  ],
+  "tiktok_ad_metrics": [
+    {
+      "id": "tamet_001",
+      "campaign_id": "tad_001",
+      "snapshot_date": "2026-05-14",
+      "impressions": 6000,
+      "reach": 4200,
+      "clicks": 85,
+      "ctr": 1.41,
+      "cpc": 1764,
+      "cpm": 25000,
+      "conversions": 13,
+      "spend_to_date": 150000,
+      "source": "manual"
+    }
+  ],
+  "meta_campaigns": [
+    {
+      "id": "meta_001",
+      "campaign_name": "Meta Messages Test",
+      "platform": "Both",
+      "creative_link": "https://drive.google.com/",
+      "start_date": "2026-05-12",
+      "end_date": "2026-05-20",
+      "budget_total": 400000,
+      "budget_daily": 50000,
+      "objective": "Messages",
+      "target_notes": "Karyawan usia 21-45",
+      "status": "Active",
+      "finance_journaled": false,
+      "created_at": "2026-05-12T00:00:00.000Z"
+    }
+  ],
+  "meta_metrics": [
+    {
+      "id": "mmet_001",
+      "campaign_id": "meta_001",
+      "snapshot_date": "2026-05-15",
+      "reach": 3500,
+      "impressions": 5200,
+      "clicks": 70,
+      "ctr": 1.34,
+      "cpc": 2142,
+      "cpm": 28846,
+      "messages_received": 11,
+      "leads": 8,
+      "spend_to_date": 150000,
+      "source": "manual"
+    }
+  ],
+  "partners": [
+    {
+      "id": "prt_001",
+      "name": "Bengkel Pak Joko",
+      "type": "Partnership Warung-Bengkel",
+      "contact": "0812xxxx / @bengkeljoko",
+      "start_date": "2026-05-01",
+      "end_date": "",
+      "commission_type": "Per-deal flat Rp",
+      "commission_value": 50000,
+      "asset_link": "https://drive.google.com/",
+      "status": "Aktif",
+      "notes": "Referral dari bengkel sekitar"
+    }
+  ],
+  "partner_payments": [
+    {
+      "id": "ppay_001",
+      "partner_id": "prt_001",
+      "pay_date": "2026-05-15",
+      "period_month": "2026-05",
+      "amount": 50000,
+      "proof_link": "",
+      "status": "Pending",
+      "journal_entry_id": null,
+      "notes": "Komisi trial"
+    }
+  ],
+  "marketing_journal_links": {}
+}

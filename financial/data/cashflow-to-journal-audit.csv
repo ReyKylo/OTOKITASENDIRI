@@ -1,0 +1,38 @@
+Tanggal,No Jurnal,Ref,Keterangan,Total Debit,Total Kredit,Catatan Koreksi
+2026-04-07,JU-001,CF-000,Modal (CF-000),100000000,100000000,Converted from OPS CASHFLOW row 5. Setoran modal investor: Dr Kas / Cr Modal Investor.
+2026-04-08,JU-002,CF-001,Bensin (CF-001),20000,20000,Converted from OPS CASHFLOW row 6. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-04-09,JU-003,CF-002,Makan siang (CF-002),20000,20000,Converted from OPS CASHFLOW row 7. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-04-10,JU-004,CF-003,Pembelian meja (CF-003),1730000,1730000,Converted from OPS CASHFLOW row 8. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas.
+2026-04-11,JU-005,CF-004,Pembelian kursi (CF-004),988000,988000,Converted from OPS CASHFLOW row 9. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas.
+2026-04-12,JU-006,CF-005,Makan siang (CF-005),40000,40000,Converted from OPS CASHFLOW row 10. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-04-13,JU-007,CF-006,Papan tulis magnetik (CF-006),186300,186300,Converted from OPS CASHFLOW row 11. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas.
+2026-04-14,JU-008,CF-007,Lampu lighting live (CF-007),86293,86293,Converted from OPS CASHFLOW row 12. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas.
+2026-04-15,JU-009,CF-008,Pendingin/kipas (CF-008),117516,117516,Converted from OPS CASHFLOW row 13. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas.
+2026-04-16,JU-010,CF-009,Seragam kerja (CF-009),363351,363351,Converted from OPS CASHFLOW row 14. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-04-17,JU-011,CF-010,Kartu nama/ID card (CF-010),150840,150840,Converted from OPS CASHFLOW row 15. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-04-19,JU-012,CF-012,Brosur iklan (CF-012),190000,190000,Converted from OPS CASHFLOW row 16. Biaya marketing: Dr Biaya Marketing / Cr Kas.
+2026-04-20,JU-013,CF-013,Biaya makan (2 orang) (CF-013),40000,40000,Converted from OPS CASHFLOW row 17. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-04-21,JU-014,CF-014,Brosur 200 lembar (CF-014),494325,494325,Converted from OPS CASHFLOW row 18. Biaya marketing: Dr Biaya Marketing / Cr Kas.
+2026-04-22,JU-015,CF-015,Kopi (CF-015),203000,203000,Converted from OPS CASHFLOW row 19. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-04-23,JU-016,CF-016,Beli akun TikTok (CF-016),363000,363000,Converted from OPS CASHFLOW row 20. Biaya marketing: Dr Biaya Marketing / Cr Kas.
+2026-04-24,JU-017,CF-017,Biaya makan (CF-017),200000,200000,Converted from OPS CASHFLOW row 21. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-04-25,JU-018,CF-018,Sewa Ruko Setahun (CF-018),29000000,29000000,Converted from OPS CASHFLOW row 22. Sewa 1 tahun dicatat sebagai aset lancar/prepaid rent. Amortisasi bulanan bisa dipost manual.
+2026-04-25,JU-019,CF-019,Kipas Exhaust (CF-019),174540,174540,Converted from OPS CASHFLOW row 23. Renovasi/fixture ruko dikapitalisasi: Dr Renovasi Ruko / Cr Kas.
+2026-04-25,JU-020,CF-020,Banner 5 Pasang (CF-020),513388,513388,"Converted from OPS CASHFLOW row 24. Renovasi/fixture ruko dikapitalisasi: Dr Renovasi Ruko / Cr Kas. Catatan: 2 Standing Banner, 1 Banner Horizontal dan 2 Banner Vertikal "
+2026-04-25,JU-021,CF-021,Kipas Angin Plafon 3 (CF-021),807392,807392,Converted from OPS CASHFLOW row 25. Renovasi/fixture ruko dikapitalisasi: Dr Renovasi Ruko / Cr Kas.
+2026-04-25,JU-022,CF-022,Meja Belajar (CF-022),162697,162697,Converted from OPS CASHFLOW row 26. Furniture/peralatan dikapitalisasi: Dr Peralatan Kantor / Cr Kas.
+2026-04-25,JU-023,CF-023,Kursi (CF-023),333100,333100,Converted from OPS CASHFLOW row 27. Furniture/peralatan dikapitalisasi: Dr Peralatan Kantor / Cr Kas.
+2026-04-26,JU-024,CF-024,Pembuatan & penempelan poster (CF-024),1237500,1237500,Converted from OPS CASHFLOW row 28. Biaya marketing: Dr Biaya Marketing / Cr Kas.
+2026-04-27,JU-025,CF-025,Gadai motor (CF-025),2500000,2500000,Converted from OPS CASHFLOW row 29. Pencairan pokok deal: Dr Piutang Customer JS / Cr Kas. Fee tidak dimasukkan ke piutang karena bunga dibayar di depan.
+2026-04-28,JU-026,CF-026,Bunga gadai (CF-026),357000,357000,Converted from OPS CASHFLOW row 30. Bunga/fee diterima di depan: Dr Kas / Cr Pendapatan Fee JS.
+2026-04-29,JU-027,CF-027,Gadai motor (CF-027),2223000,2223000,Converted from OPS CASHFLOW row 31. Pencairan pokok deal: Dr Piutang Customer JS / Cr Kas. Fee tidak dimasukkan ke piutang karena bunga dibayar di depan.
+2026-04-30,JU-028,CF-028,Bunga gadai (CF-028),222300,222300,Converted from OPS CASHFLOW row 32. Bunga/fee diterima di depan: Dr Kas / Cr Pendapatan Fee JS.
+2026-05-01,JU-029,CF-029,Bayar listrik perusahaan (CF-029),504100,504100,Converted from OPS CASHFLOW row 33. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas.
+2026-05-02,JU-030,CF-030,Biaya makan (CF-030),320000,320000,"Biaya makan May, tetap memakai CF-030 sebagai ref unik."
+2026-05-06,JU-031,CF-034,Biaya Print + Materai (CF-034),60000,60000,Ref dikoreksi dari duplicate CF-030 ke CF-034 agar setiap transaksi unik. Dr Biaya Operasional / Cr Kas.
+2026-05-06,JU-032,CF-031,Gadai motor (CF-031),6000000,6000000,Converted from OPS CASHFLOW row 43. Pencairan pokok deal: Dr Piutang Customer JS / Cr Kas. Fee tidak dimasukkan ke piutang karena bunga dibayar di depan.
+2026-05-06,JU-033,CF-032,Bunga gadai (CF-032),900000,900000,Converted from OPS CASHFLOW row 44. Bunga/fee diterima di depan: Dr Kas / Cr Pendapatan Fee JS.
+2026-05-06,JU-035,CF-035,Print Poster 1500 (CF-035),840000,840000,"Print Poster 1500 Rp840.000 dipetakan ke Beban Marketing, bukan Operasional."
+2026-05-06,JU-036,CF-036,Print dan Keperluan print — split aset & beban (CF-036),1441531,1441531,"Transaksi cashflow Rp1,428,856 dipecah: Printer Rp1,123,664 ke Aset Tetap; Materai Rp200,000, HVS Rp58,706, Tinta Rp59,161 ke Beban Operasional. Selisih breakdown Rp12,675 dikreditkan sebagai koreksi beban supaya kas tetap cocok dengan saldo running Cashflow."
+2026-05-11,JU-034,CF-033,Bunga gadai (CF-033),223000,223000,Converted from OPS CASHFLOW row 45. Bunga/fee diterima di depan: Dr Kas / Cr Pendapatan Fee JS.
+2026-05-31,JU-037,ADJ-2026-05-SEWA,Amortisasi sewa ruko bulan Mei 2026,2416667,2416667,Penyesuaian akrual: Sewa Ruko Setahun Rp29.000.000 diamortisasi 12 bulan. Tidak mempengaruhi Kas.

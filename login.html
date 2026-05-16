@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OTOKITA — Login Disabled</title>
+  <link rel="stylesheet" href="shared/css/tokens.css" />
+  <link rel="stylesheet" href="shared/css/reset.css" />
+  <link rel="stylesheet" href="shared/css/components.css" />
+  <link rel="stylesheet" href="shared/css/layout.css" />
+  <script src="shared/js/auth.js" defer></script>
+</head>
+<body class="auth-page" data-protected="false">
+  <main class="auth-card">
+    <img class="auth-logo" src="shared/assets/logo.png" alt="OTOKITA" />
+    <p class="eyebrow">LOCAL MODE</p>
+    <h1>Login dimatikan</h1>
+    <p>Versi ini tidak memakai login, session, role gate, atau 403. Klik masuk untuk buka homepage.</p>
+    <div class="action-row">
+      <a class="btn primary" href="index.html">Masuk ke OTOKITA</a>
+    </div>
+  </main>
+  <script>
+    setTimeout(() => { window.location.href = 'index.html'; }, 800);
+  </script>
+</body>
+</html>

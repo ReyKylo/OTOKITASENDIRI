@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTOKITA Marketing — Dashboard</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css" />
+  <link rel="stylesheet" href="../shared/css/reset.css" />
+  <link rel="stylesheet" href="../shared/css/components.css" />
+  <link rel="stylesheet" href="../shared/css/layout.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
+  <script src="../shared/js/storage.js" defer></script>
+  <script src="../shared/js/i18n.js" defer></script>
+  <script src="../shared/js/ui.js" defer></script>
+  <script src="js/finance-bridge.js" defer></script>
+  <script src="js/lead-attribution.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+  <script src="../shared/js/role-permissions.js" defer></script>
+  <script src="../shared/js/auth.js" defer></script>
+  <script src="../shared/js/nav.js" defer></script>
+  <script src="../shared/js/employee-kpi-engine.js" defer></script>
+</head>
+<body data-page="dashboard" data-module="marketing" data-protected="true">
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/otokita-logo.png" alt="OTOKITA" />
+    <div><strong>OTOKITA</strong><span data-i18n="module_name">Marketing Module</span></div>
+  </a>
+  <nav class="nav">
+    <a href="index.html" data-nav="dashboard" data-i18n="nav_dashboard">Dashboard</a>
+    <a href="offline.html" data-nav="offline" data-i18n="nav_offline">Offline Poster</a>
+    <a href="tiktok.html" data-nav="tiktok" data-i18n="nav_tiktok">TikTok</a>
+    <a href="meta.html" data-nav="meta" data-i18n="nav_meta">Meta Ads</a>
+    <a href="partners.html" data-nav="partners" data-i18n="nav_partners">Partnership</a>
+    <a href="assets.html" data-nav="assets" data-i18n="nav_assets">Assets</a>
+    <a href="reports.html" data-nav="reports" data-i18n="nav_reports">Reports</a>
+  </nav>
+  <div class="tools">
+    <span class="role-chip"><span data-i18n="role">Role</span>: <b id="roleIndicator">Admin</b></span>
+    <button class="btn ghost small" id="langToggle" type="button">ID / 中文</button>
+    <button class="btn ghost small" id="exportJsonBtn" type="button" data-i18n="export_json">Export JSON</button>
+    <label class="btn ghost small file-label"><span data-i18n="import_json">Import JSON</span><input id="importJsonInput" type="file" accept="application/json" hidden></label>
+  </div>
+</header>
+<div id="accessDenied" class="container hidden"><section class="card danger"><h1 data-i18n="access_denied">Akses ditolak</h1><p data-i18n="access_denied_desc">Role ini tidak punya akses ke Marketing module.</p></section></div>
+
+<main class="container" id="appRoot">
+<section class="page-title">
+  <div><p class="eyebrow" data-i18n="dashboard_eyebrow">Marketing performance</p><h1 data-i18n="dashboard_title">Dashboard Marketing</h1></div>
+  <div class="actions"><a class="btn primary" href="offline.html" data-i18n="quick_add_campaign">+ Tambah Aktivitas</a><a class="btn" href="reports.html" data-i18n="view_reports">Lihat Laporan</a></div>
+</section>
+<section class="kpi-grid" id="kpiGrid"></section>
+<section class="grid two">
+  <article class="card"><div class="card-head"><h2 data-i18n="chart_leads_channel">Leads per Channel</h2></div><canvas id="leadsChannelChart" height="180"></canvas></article>
+  <article class="card"><div class="card-head"><h2 data-i18n="chart_spend_channel">Spend per Channel</h2></div><canvas id="spendChannelChart" height="180"></canvas></article>
+</section>
+<section class="grid three">
+  <article class="card"><div class="card-head"><h2 data-i18n="recent_leads">Recent Leads</h2></div><div id="recentLeads" class="list-stack"></div></article>
+  <article class="card"><div class="card-head"><h2 data-i18n="top_campaigns">Top Campaigns</h2></div><div id="topCampaigns" class="list-stack"></div></article>
+  <article class="card"><div class="card-head"><h2 data-i18n="pending_finance_posts">Pending Finance Posts</h2></div><div id="pendingFinancePosts" class="list-stack"></div></article>
+</section>
+</main>
+<div id="toastRoot" class="toast-root"></div>
+</body>
+</html>

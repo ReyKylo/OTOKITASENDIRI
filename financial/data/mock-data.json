@@ -1,0 +1,1672 @@
+{
+  "settings": {
+    "language": "id",
+    "role": "Admin",
+    "finance": {
+      "active_period": "2026-05"
+    }
+  },
+  "coa": [
+    {
+      "id": "acc_11000",
+      "code": "11000",
+      "name_id": "Kas & Bank",
+      "name_zh": "现金及银行存款",
+      "type": "asset",
+      "subtype": "current_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_11100",
+      "code": "11100",
+      "name_id": "Kas Kecil",
+      "name_zh": "备用现金",
+      "type": "asset",
+      "subtype": "current_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_11200",
+      "code": "11200",
+      "name_id": "Bank BCA",
+      "name_zh": "BCA银行",
+      "type": "asset",
+      "subtype": "current_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_11500",
+      "code": "11500",
+      "name_id": "Sewa Dibayar Dimuka",
+      "name_zh": "预付租金",
+      "type": "asset",
+      "subtype": "current_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_12100",
+      "code": "12100",
+      "name_id": "Piutang Customer JS",
+      "name_zh": "临时买卖客户应收款",
+      "type": "asset",
+      "subtype": "receivable",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_12200",
+      "code": "12200",
+      "name_id": "Piutang Cicilan",
+      "name_zh": "分期应收款",
+      "type": "asset",
+      "subtype": "receivable",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_12300",
+      "code": "12300",
+      "name_id": "Piutang Bridging",
+      "name_zh": "过桥应收款",
+      "type": "asset",
+      "subtype": "receivable",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_12400",
+      "code": "12400",
+      "name_id": "Piutang Karyawan",
+      "name_zh": "员工应收款",
+      "type": "asset",
+      "subtype": "receivable",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_12500",
+      "code": "12500",
+      "name_id": "Piutang Karyawan",
+      "name_zh": "员工借款/预支款",
+      "type": "asset",
+      "subtype": "receivable",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_13000",
+      "code": "13000",
+      "name_id": "Persediaan",
+      "name_zh": "库存",
+      "type": "asset",
+      "subtype": "current_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_14000",
+      "code": "14000",
+      "name_id": "Inventory Motor Sitaan",
+      "name_zh": "收回摩托车库存",
+      "type": "asset",
+      "subtype": "other_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_14100",
+      "code": "14100",
+      "name_id": "Inventory Motor Sitaan",
+      "name_zh": "扣押摩托库存",
+      "type": "asset",
+      "subtype": "other_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_15100",
+      "code": "15100",
+      "name_id": "Peralatan Kantor",
+      "name_zh": "办公设备",
+      "type": "asset",
+      "subtype": "fixed_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_15200",
+      "code": "15200",
+      "name_id": "Kendaraan",
+      "name_zh": "车辆",
+      "type": "asset",
+      "subtype": "fixed_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_15300",
+      "code": "15300",
+      "name_id": "Akumulasi Penyusutan",
+      "name_zh": "累计折旧",
+      "type": "asset",
+      "subtype": "contra_asset",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_15400",
+      "code": "15400",
+      "name_id": "Renovasi Ruko / Leasehold Improvement",
+      "name_zh": "店铺装修资产",
+      "type": "asset",
+      "subtype": "fixed_asset",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_21000",
+      "code": "21000",
+      "name_id": "Hutang Usaha",
+      "name_zh": "应付账款",
+      "type": "liability",
+      "subtype": "current_liability",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_22000",
+      "code": "22000",
+      "name_id": "Hutang Investor",
+      "name_zh": "投资人借款",
+      "type": "liability",
+      "subtype": "liability",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_31000",
+      "code": "31000",
+      "name_id": "Modal Investor",
+      "name_zh": "投资人资本",
+      "type": "equity",
+      "subtype": "capital",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_32000",
+      "code": "32000",
+      "name_id": "Laba Ditahan",
+      "name_zh": "留存收益",
+      "type": "equity",
+      "subtype": "retained_earnings",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_33000",
+      "code": "33000",
+      "name_id": "Laba Periode Berjalan",
+      "name_zh": "本期利润",
+      "type": "equity",
+      "subtype": "current_income",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_41100",
+      "code": "41100",
+      "name_id": "Pendapatan Fee JS",
+      "name_zh": "临时买卖服务费收入",
+      "type": "revenue",
+      "subtype": "fee_js",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_41200",
+      "code": "41200",
+      "name_id": "Pendapatan Fee Cicilan",
+      "name_zh": "分期服务费收入",
+      "type": "revenue",
+      "subtype": "fee_installment",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_41300",
+      "code": "41300",
+      "name_id": "Pendapatan Margin Jembatan",
+      "name_zh": "过桥利润收入",
+      "type": "revenue",
+      "subtype": "bridging_margin",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_41400",
+      "code": "41400",
+      "name_id": "Pendapatan Penjualan Motor Sitaan",
+      "name_zh": "扣押摩托销售收入",
+      "type": "revenue",
+      "subtype": "seized_motor_sale",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_41900",
+      "code": "41900",
+      "name_id": "Pendapatan Lain",
+      "name_zh": "其他收入",
+      "type": "revenue",
+      "subtype": "other_income",
+      "normal_balance": "credit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_51000",
+      "code": "51000",
+      "name_id": "Biaya Operasional",
+      "name_zh": "运营费用",
+      "type": "expense",
+      "subtype": "operational",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_52000",
+      "code": "52000",
+      "name_id": "Biaya Marketing",
+      "name_zh": "营销费用",
+      "type": "expense",
+      "subtype": "marketing",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_53000",
+      "code": "53000",
+      "name_id": "Biaya Renovasi",
+      "name_zh": "装修费用",
+      "type": "expense",
+      "subtype": "renovation",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_54000",
+      "code": "54000",
+      "name_id": "Biaya Gaji",
+      "name_zh": "工资费用",
+      "type": "expense",
+      "subtype": "salary",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_54100",
+      "code": "54100",
+      "name_id": "Komisi Sales",
+      "name_zh": "销售佣金",
+      "type": "expense",
+      "subtype": "sales_commission",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_55000",
+      "code": "55000",
+      "name_id": "Biaya Sewa",
+      "name_zh": "租金费用",
+      "type": "expense",
+      "subtype": "rent",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_56000",
+      "code": "56000",
+      "name_id": "Biaya Penyusutan",
+      "name_zh": "折旧费用",
+      "type": "expense",
+      "subtype": "depreciation",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "acc_59000",
+      "code": "59000",
+      "name_id": "Biaya Lain",
+      "name_zh": "其他费用",
+      "type": "expense",
+      "subtype": "other_expense",
+      "normal_balance": "debit",
+      "opening_balance": 0,
+      "is_active": true,
+      "created_at": "2026-04-01T00:00:00.000Z"
+    }
+  ],
+  "journal": [
+    {
+      "id": "je_cf_001",
+      "journal_number": "JU-001",
+      "date": "2026-04-07",
+      "description": "Modal (CF-000)",
+      "client_name": "",
+      "doc_number": "CF-000",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-000",
+      "lines": [
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 100000000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_31000",
+          "account_code": "31000",
+          "account_name_snapshot": "Modal Investor",
+          "debit": 0,
+          "credit": 100000000
+        }
+      ],
+      "created_at": "2026-04-07T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 5. Setoran modal investor: Dr Kas / Cr Modal Investor."
+    },
+    {
+      "id": "je_cf_002",
+      "journal_number": "JU-002",
+      "date": "2026-04-08",
+      "description": "Bensin (CF-001)",
+      "client_name": "",
+      "doc_number": "CF-001",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-001",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 20000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 20000
+        }
+      ],
+      "created_at": "2026-04-08T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 6. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_003",
+      "journal_number": "JU-003",
+      "date": "2026-04-09",
+      "description": "Makan siang (CF-002)",
+      "client_name": "",
+      "doc_number": "CF-002",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-002",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 20000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 20000
+        }
+      ],
+      "created_at": "2026-04-09T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 7. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_004",
+      "journal_number": "JU-004",
+      "date": "2026-04-10",
+      "description": "Pembelian meja (CF-003)",
+      "client_name": "",
+      "doc_number": "CF-003",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-003",
+      "lines": [
+        {
+          "account_id": "acc_15100",
+          "account_code": "15100",
+          "account_name_snapshot": "Peralatan Kantor",
+          "debit": 1730000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 1730000
+        }
+      ],
+      "created_at": "2026-04-10T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 8. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas."
+    },
+    {
+      "id": "je_cf_005",
+      "journal_number": "JU-005",
+      "date": "2026-04-11",
+      "description": "Pembelian kursi (CF-004)",
+      "client_name": "",
+      "doc_number": "CF-004",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-004",
+      "lines": [
+        {
+          "account_id": "acc_15100",
+          "account_code": "15100",
+          "account_name_snapshot": "Peralatan Kantor",
+          "debit": 988000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 988000
+        }
+      ],
+      "created_at": "2026-04-11T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 9. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas."
+    },
+    {
+      "id": "je_cf_006",
+      "journal_number": "JU-006",
+      "date": "2026-04-12",
+      "description": "Makan siang (CF-005)",
+      "client_name": "",
+      "doc_number": "CF-005",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-005",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 40000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 40000
+        }
+      ],
+      "created_at": "2026-04-12T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 10. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_007",
+      "journal_number": "JU-007",
+      "date": "2026-04-13",
+      "description": "Papan tulis magnetik (CF-006)",
+      "client_name": "",
+      "doc_number": "CF-006",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-006",
+      "lines": [
+        {
+          "account_id": "acc_15100",
+          "account_code": "15100",
+          "account_name_snapshot": "Peralatan Kantor",
+          "debit": 186300,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 186300
+        }
+      ],
+      "created_at": "2026-04-13T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 11. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas."
+    },
+    {
+      "id": "je_cf_008",
+      "journal_number": "JU-008",
+      "date": "2026-04-14",
+      "description": "Lampu lighting live (CF-007)",
+      "client_name": "",
+      "doc_number": "CF-007",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-007",
+      "lines": [
+        {
+          "account_id": "acc_15100",
+          "account_code": "15100",
+          "account_name_snapshot": "Peralatan Kantor",
+          "debit": 86293,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 86293
+        }
+      ],
+      "created_at": "2026-04-14T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 12. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas."
+    },
+    {
+      "id": "je_cf_009",
+      "journal_number": "JU-009",
+      "date": "2026-04-15",
+      "description": "Pendingin/kipas (CF-008)",
+      "client_name": "",
+      "doc_number": "CF-008",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-008",
+      "lines": [
+        {
+          "account_id": "acc_15100",
+          "account_code": "15100",
+          "account_name_snapshot": "Peralatan Kantor",
+          "debit": 117516,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 117516
+        }
+      ],
+      "created_at": "2026-04-15T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 13. Peralatan kantor dikapitalisasi: Dr Peralatan Kantor / Cr Kas."
+    },
+    {
+      "id": "je_cf_010",
+      "journal_number": "JU-010",
+      "date": "2026-04-16",
+      "description": "Seragam kerja (CF-009)",
+      "client_name": "",
+      "doc_number": "CF-009",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-009",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 363351,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 363351
+        }
+      ],
+      "created_at": "2026-04-16T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 14. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_011",
+      "journal_number": "JU-011",
+      "date": "2026-04-17",
+      "description": "Kartu nama/ID card (CF-010)",
+      "client_name": "",
+      "doc_number": "CF-010",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-010",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 150840,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 150840
+        }
+      ],
+      "created_at": "2026-04-17T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 15. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_012",
+      "journal_number": "JU-012",
+      "date": "2026-04-19",
+      "description": "Brosur iklan (CF-012)",
+      "client_name": "",
+      "doc_number": "CF-012",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-012",
+      "lines": [
+        {
+          "account_id": "acc_52000",
+          "account_code": "52000",
+          "account_name_snapshot": "Biaya Marketing",
+          "debit": 190000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 190000
+        }
+      ],
+      "created_at": "2026-04-19T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 16. Biaya marketing: Dr Biaya Marketing / Cr Kas."
+    },
+    {
+      "id": "je_cf_013",
+      "journal_number": "JU-013",
+      "date": "2026-04-20",
+      "description": "Biaya makan (2 orang) (CF-013)",
+      "client_name": "",
+      "doc_number": "CF-013",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-013",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 40000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 40000
+        }
+      ],
+      "created_at": "2026-04-20T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 17. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_014",
+      "journal_number": "JU-014",
+      "date": "2026-04-21",
+      "description": "Brosur 200 lembar (CF-014)",
+      "client_name": "",
+      "doc_number": "CF-014",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-014",
+      "lines": [
+        {
+          "account_id": "acc_52000",
+          "account_code": "52000",
+          "account_name_snapshot": "Biaya Marketing",
+          "debit": 494325,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 494325
+        }
+      ],
+      "created_at": "2026-04-21T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 18. Biaya marketing: Dr Biaya Marketing / Cr Kas."
+    },
+    {
+      "id": "je_cf_015",
+      "journal_number": "JU-015",
+      "date": "2026-04-22",
+      "description": "Kopi (CF-015)",
+      "client_name": "",
+      "doc_number": "CF-015",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-015",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 203000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 203000
+        }
+      ],
+      "created_at": "2026-04-22T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 19. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_016",
+      "journal_number": "JU-016",
+      "date": "2026-04-23",
+      "description": "Beli akun TikTok (CF-016)",
+      "client_name": "",
+      "doc_number": "CF-016",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-016",
+      "lines": [
+        {
+          "account_id": "acc_52000",
+          "account_code": "52000",
+          "account_name_snapshot": "Biaya Marketing",
+          "debit": 363000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 363000
+        }
+      ],
+      "created_at": "2026-04-23T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 20. Biaya marketing: Dr Biaya Marketing / Cr Kas."
+    },
+    {
+      "id": "je_cf_017",
+      "journal_number": "JU-017",
+      "date": "2026-04-24",
+      "description": "Biaya makan (CF-017)",
+      "client_name": "",
+      "doc_number": "CF-017",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-017",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 200000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 200000
+        }
+      ],
+      "created_at": "2026-04-24T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 21. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_018",
+      "journal_number": "JU-018",
+      "date": "2026-04-25",
+      "description": "Sewa Ruko Setahun (CF-018)",
+      "client_name": "",
+      "doc_number": "CF-018",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-018",
+      "lines": [
+        {
+          "account_id": "acc_11500",
+          "account_code": "11500",
+          "account_name_snapshot": "Sewa Dibayar Dimuka",
+          "debit": 29000000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 29000000
+        }
+      ],
+      "created_at": "2026-04-25T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 22. Sewa 1 tahun dicatat sebagai aset lancar/prepaid rent. Amortisasi bulanan bisa dipost manual."
+    },
+    {
+      "id": "je_cf_019",
+      "journal_number": "JU-019",
+      "date": "2026-04-25",
+      "description": "Kipas Exhaust (CF-019)",
+      "client_name": "",
+      "doc_number": "CF-019",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-019",
+      "lines": [
+        {
+          "account_id": "acc_15400",
+          "account_code": "15400",
+          "account_name_snapshot": "Renovasi Ruko / Leasehold Improvement",
+          "debit": 174540,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 174540
+        }
+      ],
+      "created_at": "2026-04-25T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 23. Renovasi/fixture ruko dikapitalisasi: Dr Renovasi Ruko / Cr Kas."
+    },
+    {
+      "id": "je_cf_020",
+      "journal_number": "JU-020",
+      "date": "2026-04-25",
+      "description": "Banner 5 Pasang (CF-020)",
+      "client_name": "",
+      "doc_number": "CF-020",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-020",
+      "lines": [
+        {
+          "account_id": "acc_15400",
+          "account_code": "15400",
+          "account_name_snapshot": "Renovasi Ruko / Leasehold Improvement",
+          "debit": 513388,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 513388
+        }
+      ],
+      "created_at": "2026-04-25T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 24. Renovasi/fixture ruko dikapitalisasi: Dr Renovasi Ruko / Cr Kas. Catatan: 2 Standing Banner, 1 Banner Horizontal dan 2 Banner Vertikal "
+    },
+    {
+      "id": "je_cf_021",
+      "journal_number": "JU-021",
+      "date": "2026-04-25",
+      "description": "Kipas Angin Plafon 3 (CF-021)",
+      "client_name": "",
+      "doc_number": "CF-021",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-021",
+      "lines": [
+        {
+          "account_id": "acc_15400",
+          "account_code": "15400",
+          "account_name_snapshot": "Renovasi Ruko / Leasehold Improvement",
+          "debit": 807392,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 807392
+        }
+      ],
+      "created_at": "2026-04-25T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 25. Renovasi/fixture ruko dikapitalisasi: Dr Renovasi Ruko / Cr Kas."
+    },
+    {
+      "id": "je_cf_022",
+      "journal_number": "JU-022",
+      "date": "2026-04-25",
+      "description": "Meja Belajar (CF-022)",
+      "client_name": "",
+      "doc_number": "CF-022",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-022",
+      "lines": [
+        {
+          "account_id": "acc_15100",
+          "account_code": "15100",
+          "account_name_snapshot": "Peralatan Kantor",
+          "debit": 162697,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 162697
+        }
+      ],
+      "created_at": "2026-04-25T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 26. Furniture/peralatan dikapitalisasi: Dr Peralatan Kantor / Cr Kas."
+    },
+    {
+      "id": "je_cf_023",
+      "journal_number": "JU-023",
+      "date": "2026-04-25",
+      "description": "Kursi (CF-023)",
+      "client_name": "",
+      "doc_number": "CF-023",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-023",
+      "lines": [
+        {
+          "account_id": "acc_15100",
+          "account_code": "15100",
+          "account_name_snapshot": "Peralatan Kantor",
+          "debit": 333100,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 333100
+        }
+      ],
+      "created_at": "2026-04-25T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 27. Furniture/peralatan dikapitalisasi: Dr Peralatan Kantor / Cr Kas."
+    },
+    {
+      "id": "je_cf_024",
+      "journal_number": "JU-024",
+      "date": "2026-04-26",
+      "description": "Pembuatan & penempelan poster (CF-024)",
+      "client_name": "",
+      "doc_number": "CF-024",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-024",
+      "lines": [
+        {
+          "account_id": "acc_52000",
+          "account_code": "52000",
+          "account_name_snapshot": "Biaya Marketing",
+          "debit": 1237500,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 1237500
+        }
+      ],
+      "created_at": "2026-04-26T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 28. Biaya marketing: Dr Biaya Marketing / Cr Kas."
+    },
+    {
+      "id": "je_cf_025",
+      "journal_number": "JU-025",
+      "date": "2026-04-27",
+      "description": "Gadai motor (CF-025)",
+      "client_name": "",
+      "doc_number": "CF-025",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-025",
+      "lines": [
+        {
+          "account_id": "acc_12100",
+          "account_code": "12100",
+          "account_name_snapshot": "Piutang Customer JS",
+          "debit": 2500000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 2500000
+        }
+      ],
+      "created_at": "2026-04-27T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 29. Pencairan pokok deal: Dr Piutang Customer JS / Cr Kas. Fee tidak dimasukkan ke piutang karena bunga dibayar di depan."
+    },
+    {
+      "id": "je_cf_026",
+      "journal_number": "JU-026",
+      "date": "2026-04-28",
+      "description": "Bunga gadai (CF-026)",
+      "client_name": "",
+      "doc_number": "CF-026",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-026",
+      "lines": [
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 357000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_41100",
+          "account_code": "41100",
+          "account_name_snapshot": "Pendapatan Fee JS",
+          "debit": 0,
+          "credit": 357000
+        }
+      ],
+      "created_at": "2026-04-28T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 30. Bunga/fee diterima di depan: Dr Kas / Cr Pendapatan Fee JS."
+    },
+    {
+      "id": "je_cf_027",
+      "journal_number": "JU-027",
+      "date": "2026-04-29",
+      "description": "Gadai motor (CF-027)",
+      "client_name": "",
+      "doc_number": "CF-027",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-027",
+      "lines": [
+        {
+          "account_id": "acc_12100",
+          "account_code": "12100",
+          "account_name_snapshot": "Piutang Customer JS",
+          "debit": 2223000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 2223000
+        }
+      ],
+      "created_at": "2026-04-29T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 31. Pencairan pokok deal: Dr Piutang Customer JS / Cr Kas. Fee tidak dimasukkan ke piutang karena bunga dibayar di depan."
+    },
+    {
+      "id": "je_cf_028",
+      "journal_number": "JU-028",
+      "date": "2026-04-30",
+      "description": "Bunga gadai (CF-028)",
+      "client_name": "",
+      "doc_number": "CF-028",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-028",
+      "lines": [
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 222300,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_41100",
+          "account_code": "41100",
+          "account_name_snapshot": "Pendapatan Fee JS",
+          "debit": 0,
+          "credit": 222300
+        }
+      ],
+      "created_at": "2026-04-30T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 32. Bunga/fee diterima di depan: Dr Kas / Cr Pendapatan Fee JS."
+    },
+    {
+      "id": "je_cf_029",
+      "journal_number": "JU-029",
+      "date": "2026-05-01",
+      "description": "Bayar listrik perusahaan (CF-029)",
+      "client_name": "",
+      "doc_number": "CF-029",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-029",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 504100,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 504100
+        }
+      ],
+      "created_at": "2026-05-01T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 33. Biaya operasional rutin: Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_030",
+      "journal_number": "JU-030",
+      "date": "2026-05-02",
+      "description": "Biaya makan (CF-030)",
+      "client_name": "",
+      "doc_number": "CF-030",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-030",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 320000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 320000
+        }
+      ],
+      "created_at": "2026-05-02T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Biaya makan May, tetap memakai CF-030 sebagai ref unik."
+    },
+    {
+      "id": "je_cf_031",
+      "journal_number": "JU-031",
+      "date": "2026-05-06",
+      "description": "Biaya Print + Materai (CF-034)",
+      "client_name": "",
+      "doc_number": "CF-034",
+      "proof_link": "",
+      "source": "import_cashflow_ops_corrected",
+      "deal_id": null,
+      "cf_ref": "CF-034",
+      "lines": [
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 60000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 60000
+        }
+      ],
+      "created_at": "2026-05-06T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Ref dikoreksi dari duplicate CF-030 ke CF-034 agar setiap transaksi unik. Dr Biaya Operasional / Cr Kas."
+    },
+    {
+      "id": "je_cf_032",
+      "journal_number": "JU-032",
+      "date": "2026-05-06",
+      "description": "Gadai motor (CF-031)",
+      "client_name": "",
+      "doc_number": "CF-031",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-031",
+      "lines": [
+        {
+          "account_id": "acc_12100",
+          "account_code": "12100",
+          "account_name_snapshot": "Piutang Customer JS",
+          "debit": 6000000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 6000000
+        }
+      ],
+      "created_at": "2026-05-06T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 43. Pencairan pokok deal: Dr Piutang Customer JS / Cr Kas. Fee tidak dimasukkan ke piutang karena bunga dibayar di depan."
+    },
+    {
+      "id": "je_cf_033",
+      "journal_number": "JU-033",
+      "date": "2026-05-06",
+      "description": "Bunga gadai (CF-032)",
+      "client_name": "",
+      "doc_number": "CF-032",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-032",
+      "lines": [
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 900000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_41100",
+          "account_code": "41100",
+          "account_name_snapshot": "Pendapatan Fee JS",
+          "debit": 0,
+          "credit": 900000
+        }
+      ],
+      "created_at": "2026-05-06T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 44. Bunga/fee diterima di depan: Dr Kas / Cr Pendapatan Fee JS."
+    },
+    {
+      "id": "je_cf_035_poster",
+      "journal_number": "JU-035",
+      "date": "2026-05-06",
+      "description": "Print Poster 1500 (CF-035)",
+      "client_name": "",
+      "doc_number": "CF-035",
+      "proof_link": "",
+      "source": "import_cashflow_ops_corrected",
+      "deal_id": null,
+      "cf_ref": "CF-035",
+      "lines": [
+        {
+          "account_id": "acc_52000",
+          "account_code": "52000",
+          "account_name_snapshot": "Biaya Marketing",
+          "debit": 840000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 840000
+        }
+      ],
+      "created_at": "2026-05-06T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Print Poster 1500 Rp840.000 dipetakan ke Beban Marketing, bukan Operasional."
+    },
+    {
+      "id": "je_cf_036_print_tools",
+      "journal_number": "JU-036",
+      "date": "2026-05-06",
+      "description": "Print dan Keperluan print — split aset & beban (CF-036)",
+      "client_name": "",
+      "doc_number": "CF-036",
+      "proof_link": "",
+      "source": "import_cashflow_ops_corrected",
+      "deal_id": null,
+      "cf_ref": "CF-036",
+      "lines": [
+        {
+          "account_id": "acc_15100",
+          "account_code": "15100",
+          "account_name_snapshot": "Peralatan Kantor",
+          "debit": 1123664,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 200000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 58706,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 59161,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_51000",
+          "account_code": "51000",
+          "account_name_snapshot": "Biaya Operasional",
+          "debit": 0,
+          "credit": 12675
+        },
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 0,
+          "credit": 1428856
+        }
+      ],
+      "created_at": "2026-05-06T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Transaksi cashflow Rp1,428,856 dipecah: Printer Rp1,123,664 ke Aset Tetap; Materai Rp200,000, HVS Rp58,706, Tinta Rp59,161 ke Beban Operasional. Selisih breakdown Rp12,675 dikreditkan sebagai koreksi beban supaya kas tetap cocok dengan saldo running Cashflow."
+    },
+    {
+      "id": "je_cf_034",
+      "journal_number": "JU-034",
+      "date": "2026-05-11",
+      "description": "Bunga gadai (CF-033)",
+      "client_name": "",
+      "doc_number": "CF-033",
+      "proof_link": "",
+      "source": "import_cashflow_ops_standardized",
+      "deal_id": null,
+      "cf_ref": "CF-033",
+      "lines": [
+        {
+          "account_id": "acc_11000",
+          "account_code": "11000",
+          "account_name_snapshot": "Kas & Bank",
+          "debit": 223000,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_41100",
+          "account_code": "41100",
+          "account_name_snapshot": "Pendapatan Fee JS",
+          "debit": 0,
+          "credit": 223000
+        }
+      ],
+      "created_at": "2026-05-11T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Converted from OPS CASHFLOW row 45. Bunga/fee diterima di depan: Dr Kas / Cr Pendapatan Fee JS."
+    },
+    {
+      "id": "je_adj_2026_05_sewa",
+      "journal_number": "JU-037",
+      "date": "2026-05-31",
+      "description": "Amortisasi sewa ruko bulan Mei 2026",
+      "client_name": "",
+      "doc_number": "ADJ-2026-05-SEWA",
+      "proof_link": "",
+      "source": "adjustment_accrual",
+      "deal_id": null,
+      "cf_ref": "ADJ-2026-05-SEWA",
+      "lines": [
+        {
+          "account_id": "acc_55000",
+          "account_code": "55000",
+          "account_name_snapshot": "Biaya Sewa",
+          "debit": 2416667,
+          "credit": 0
+        },
+        {
+          "account_id": "acc_11500",
+          "account_code": "11500",
+          "account_name_snapshot": "Sewa Dibayar Dimuka",
+          "debit": 0,
+          "credit": 2416667
+        }
+      ],
+      "created_at": "2026-05-31T09:00:00.000Z",
+      "created_by_role": "Admin",
+      "notes": "Penyesuaian akrual: Sewa Ruko Setahun Rp29.000.000 diamortisasi 12 bulan. Tidak mempengaruhi Kas."
+    }
+  ],
+  "journal_links": {
+    "seed_deal_001": {
+      "disbursement": [
+        "je_seed_009"
+      ],
+      "redeem": [],
+      "forfeit": []
+    }
+  },
+  "investor_notes": {
+    "2026-04": "Seed dari cashflow OPS April: modal awal, biaya operasional, marketing, sewa, dan 1 contoh deal.",
+    "2026-05": ""
+  },
+  "employees": [
+    {
+      "id": "emp_aydin",
+      "name": "Aydin",
+      "role": "Co-Owner",
+      "status": "active",
+      "base_salary": 2500000,
+      "commission_rules": {
+        "sales_pct": 0,
+        "senior_sales_pct": 0
+      },
+      "current_tier": null,
+      "joined_date": "2026-04-01",
+      "notes": "Co-owner, no commission",
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "emp_ucis",
+      "name": "Ucis",
+      "role": "Admin",
+      "status": "active",
+      "base_salary": 2000000,
+      "commission_rules": {
+        "sales_pct": 0,
+        "senior_sales_pct": 0
+      },
+      "current_tier": null,
+      "joined_date": "2026-04-01",
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "emp_humam",
+      "name": "Humam",
+      "role": "Junior Sales",
+      "status": "active",
+      "base_salary": 2000000,
+      "commission_rules": {
+        "sales_pct": 5,
+        "senior_sales_pct": 7.5
+      },
+      "current_tier": "sales",
+      "joined_date": "2026-04-01",
+      "notes": "Kepala Sales tapi sekarang junior dulu. Akan promote ke Senior Sales nanti.",
+      "created_at": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "emp_marisa",
+      "name": "Marisa",
+      "role": "Marketing",
+      "status": "active",
+      "base_salary": 2000000,
+      "commission_rules": {
+        "sales_pct": 0,
+        "senior_sales_pct": 0
+      },
+      "current_tier": null,
+      "joined_date": "2026-04-01",
+      "created_at": "2026-04-01T00:00:00.000Z"
+    }
+  ],
+  "commissions": [],
+  "motor_sitaan": [],
+  "wages": []
+}

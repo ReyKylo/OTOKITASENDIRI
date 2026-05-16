@@ -1,0 +1,6 @@
+:root{
+  --brand-navy:#1F3864;--brand-gold:#F0B53D;--brand-black:#0A0A0A;--brand-white:#fff;
+  --bg:#F4F7FB;--card:#fff;--text:#172033;--muted:#667085;--line:#E5E7EB;
+  --green:#079455;--green-bg:#ECFDF3;--red:#D92D20;--red-bg:#FEF3F2;--yellow:#B7791F;--yellow-bg:#FFFAEB;--blue:#175CD3;--blue-bg:#EFF8FF;
+  --shadow:0 14px 30px rgba(31,56,100,.08);--radius:18px;--space:16px;
+}

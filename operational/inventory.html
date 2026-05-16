@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTOKITA Operational — Inventory</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css" />
+  <link rel="stylesheet" href="../shared/css/reset.css" />
+  <link rel="stylesheet" href="../shared/css/components.css" />
+  <link rel="stylesheet" href="../shared/css/layout.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="../shared/js/storage.js" defer></script>
+  <script src="../shared/js/i18n.js" defer></script>
+  <script src="../shared/js/ui.js" defer></script>
+  <script src="js/inventory.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+  <script src="../shared/js/role-permissions.js" defer></script>
+  <script src="../shared/js/auth.js" defer></script>
+  <script src="../shared/js/nav.js" defer></script>
+  <script src="../shared/js/employee-kpi-engine.js" defer></script>
+</head>
+<body data-page="inventory" data-module="operational" data-protected="true">
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/otokita-logo.png" alt="OTOKITA logo" class="brand-logo" />
+      <div>
+        <strong>OTOKITA</strong>
+        <span data-i18n="module_operational">Operational Module</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" data-nav="dashboard" data-i18n="nav_dashboard">Dashboard</a>
+      <a href="calculator.html" data-nav="calculator" data-i18n="nav_calculator">Calculator</a>
+      <a href="leads.html" data-nav="leads" data-i18n="nav_leads">Leads</a>
+      <a href="inventory.html" data-nav="inventory"><span data-i18n="nav_inventory">Inventory</span> <span id="pendingBadge" class="badge hidden">0</span></a>
+    </nav>
+    <div class="header-tools"><span class="role-chip"><span data-i18n="role_label">Role</span>: <b id="roleIndicator">Admin</b></span><button class="btn ghost small" id="globalLangToggle" type="button">ID / 中文</button><button class="btn ghost small globalExportJson" type="button" data-i18n="save_json">Save JSON</button><label class="btn ghost small file-btn"><span data-i18n="import_json">Import JSON</span><input class="globalImportJson" type="file" accept="application/json" hidden /></label></div>
+  </header>
+
+  <main class="container">
+    <section class="page-title-row">
+      <div>
+        <p class="eyebrow" data-i18n="inventory_eyebrow">Active deals</p>
+        <h1 data-i18n="inventory_title">Inventory</h1>
+      </div>
+      <div class="quick-actions">
+        <button class="btn danger" id="bulkDeleteDeals" type="button" data-i18n="delete_selected">Delete Selected</button>
+        <button class="btn primary writable" id="addDealBtn" type="button" data-i18n="add_deal">+ Tambah Deal</button>
+      </div>
+    </section>
+
+    <section class="card filters">
+      <input id="dealSearch" placeholder="Search nama customer" />
+      <select id="dealStatusFilter"><option value="" data-i18n="filter_all_status">Semua Status</option><option>Aktif</option><option>Ditebus</option><option>Hangus</option><option>Ditolak</option></select>
+      <select id="dealProductFilter"><option value="" data-i18n="filter_all_product">Semua Produk</option><option>JS Lunas 15H</option><option>JS Lunas 30H</option><option>Cicilan 3 Bulan</option><option>Transaksi Jembatan</option></select>
+      <select id="dealAlertFilter"><option value="" data-i18n="filter_all_alert">Semua Alert</option><option value="red">Merah</option><option value="yellow">Kuning</option><option value="green">Hijau</option></select>
+      <select id="dealSalesPicFilter" data-sales-pic-filter="1"><option value="" data-i18n="filter_all_sales_pic">Semua Sales PIC</option></select>
+      <button class="btn" id="resetDealFilters" type="button" data-i18n="reset_filter">Reset Filter</button>
+    </section>
+
+    <section class="card table-card">
+      <div class="table-wrap">
+        <table class="data-table" id="dealsTable">
+          <thead>
+            <tr>
+              <th><input type="checkbox" id="selectAllDeals" /></th>
+              <th data-sort="created_at" data-i18n="col_start_date">Tanggal Mulai</th>
+              <th data-sort="customer_name" data-i18n="col_customer">Customer</th>
+              <th data-sort="motorcycle_info" data-i18n="col_motor">Motor</th>
+              <th data-sort="product_type" data-i18n="col_product">Produk</th>
+              <th data-sort="principal" data-i18n="col_principal">Pokok</th>
+              <th data-sort="total_tebus" data-i18n="col_total_tebus">Total Tebus</th>
+              <th data-sort="sales_pic_id" data-i18n="col_sales_pic">Sales PIC</th>
+              <th data-sort="due_date" data-i18n="col_due_date">Due Date</th>
+              <th data-sort="status" data-i18n="col_status">Status</th>
+              <th data-i18n="col_alert">Alert</th>
+              <th data-i18n="col_commission_status">Komisi Status</th>
+              <th data-i18n="col_action">Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastRoot" class="toast-root"></div>
+  <div id="modalRoot"></div>
+</body>
+</html>

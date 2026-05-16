@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTOKITA Financial — Dashboard</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css"><link rel="stylesheet" href="../shared/css/reset.css"><link rel="stylesheet" href="../shared/css/components.css"><link rel="stylesheet" href="../shared/css/layout.css"><link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/jurnal.js" defer></script>
+  <script src="js/operational-bridge.js" defer></script>
+  <script src="js/laporan.js" defer></script>
+  <script src="js/commission.js" defer></script>
+  <script src="js/pdf-export.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+<script src="../shared/js/role-permissions.js" defer></script>
+<script src="../shared/js/auth.js" defer></script>
+<script src="../shared/js/nav.js" defer></script>
+</head>
+<body data-page="dashboard" data-module="financial" data-protected="true">
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="assets/otokita-logo.png" alt="OTOKITA" class="brand-logo" />
+      <div><strong>OTOKITA</strong><span data-i18n="module_financial">Financial Module</span></div>
+    </a>
+    <nav class="nav">
+      <a href="index.html" data-nav="dashboard" data-i18n="nav_dashboard">Dashboard</a>
+      <a href="jurnal.html" data-nav="jurnal" data-i18n="nav_jurnal">Jurnal</a>
+      <a href="buku-besar.html" data-nav="ledger" data-i18n="nav_ledger">Buku Besar</a>
+      <a href="laporan.html" data-nav="reports" data-i18n="nav_reports">Laporan</a><a href="motor-sitaan.html" data-nav="motor_sitaan" data-i18n="motor_sitaan">Motor Sitaan</a>
+    </nav>
+    <div class="header-tools"><a class="btn ghost small" id="financialHomeBtn" href="../index.html">← Home</a>
+      <span class="role-chip"><span data-i18n="role_label">Role</span>: <b id="roleIndicator">Admin</b></span>
+      <button class="btn ghost small" id="globalLangToggle" type="button">ID / 中文</button>
+      <button class="btn ghost small" id="headerExportJson" type="button" data-i18n="export_json">Export JSON</button>
+      <label class="btn ghost small file-btn"><span data-i18n="import_json">Import JSON</span><input id="headerImportJson" type="file" accept="application/json" hidden /></label>
+    </div>
+  </header>
+  <main class="container access-wrap">
+    <section id="accessDenied" class="card danger hidden">
+      <h1 data-i18n="access_denied_title">Akses ditolak</h1>
+      <p data-i18n="access_denied_desc">Role Sales/Marketing tidak punya akses ke Financial Module.</p>
+    </section>
+    <section id="pageContent">
+      <section class="page-title-row">
+        <div>
+          <p class="eyebrow" data-i18n="dashboard_eyebrow">Kontrol accounting harian</p>
+          <h1 data-i18n="dashboard_title">Dashboard Financial</h1>
+        </div>
+        <div class="quick-actions">
+          <a class="btn primary" href="jurnal.html#manual" data-i18n="quick_manual_journal">+ Jurnal Manual</a>
+          <a class="btn" href="laporan.html" data-i18n="quick_reports">Lihat Laporan</a>
+          <button class="btn" id="exportMonthPdf" type="button" data-i18n="quick_pdf_month">Export PDF Bulan Ini</button>
+          <a class="btn accent" href="jurnal.html#import" data-i18n="quick_import_cashflow">Import OPS JSON</a>
+        </div>
+      </section>
+      <section id="dashboardPrintArea">
+        <section class="kpi-grid finance-kpi" id="kpiGrid"></section>
+        <section class="grid two">
+          <article class="card chart-card"><div class="card-head"><h2 data-i18n="chart_rev_exp">Pendapatan vs Beban 6 Bulan</h2></div><canvas id="revExpChart" height="180"></canvas></article>
+          <article class="card chart-card"><div class="card-head"><h2 data-i18n="chart_revenue_mix">Komposisi Pendapatan</h2></div><canvas id="revenueMixChart" height="180"></canvas></article>
+        </section>
+        <section class="grid two">
+          <article class="card">
+            <div class="card-head"><h2 data-i18n="pending_entries">Pending Journal Entries</h2><button class="btn small" id="reviewAllPending" type="button" data-i18n="review_all">Review Semua</button></div>
+            <div id="pendingEntries" class="list-stack"></div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h2 data-i18n="recent_journal">Recent Journal Entries</h2><a class="btn small" href="jurnal.html" data-i18n="view_all">View All</a></div>
+            <div id="recentJournal" class="list-stack"></div>
+          </article>
+        </section>
+        <section class="grid two">
+          <article class="card">
+            <div class="card-head"><h2 data-i18n="pending_wage_actions">Pending Wage Actions</h2><a class="btn small" href="laporan.html#wage" data-i18n="wage">Wage</a></div>
+            <div id="pendingWageActions" class="list-stack"></div>
+          </article>
+          <article class="card">
+            <div class="card-head"><h2 data-i18n="motor_sitaan_pending_sale">Motor Sitaan Pending Sale</h2><a class="btn small" href="motor-sitaan.html" data-i18n="motor_sitaan">Motor Sitaan</a></div>
+            <div id="motorSitaanPending" class="list-stack"></div>
+          </article>
+        </section>
+      </section>
+    </section>
+  </main>
+  <div id="toastRoot" class="toast-root"></div>
+</body>
+</html>

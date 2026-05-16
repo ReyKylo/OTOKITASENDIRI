@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTOKITA Marketing — TikTok</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css" />
+  <link rel="stylesheet" href="../shared/css/reset.css" />
+  <link rel="stylesheet" href="../shared/css/components.css" />
+  <link rel="stylesheet" href="../shared/css/layout.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
+  <script src="../shared/js/storage.js" defer></script>
+  <script src="../shared/js/i18n.js" defer></script>
+  <script src="../shared/js/ui.js" defer></script>
+  <script src="js/finance-bridge.js" defer></script>
+  <script src="js/lead-attribution.js" defer></script>
+  <script src="js/tiktok.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+  <script src="../shared/js/role-permissions.js" defer></script>
+  <script src="../shared/js/auth.js" defer></script>
+  <script src="../shared/js/nav.js" defer></script>
+  <script src="../shared/js/employee-kpi-engine.js" defer></script>
+</head>
+<body data-page="tiktok" data-module="marketing" data-protected="true">
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <img src="assets/otokita-logo.png" alt="OTOKITA" />
+    <div><strong>OTOKITA</strong><span data-i18n="module_name">Marketing Module</span></div>
+  </a>
+  <nav class="nav">
+    <a href="index.html" data-nav="dashboard" data-i18n="nav_dashboard">Dashboard</a>
+    <a href="offline.html" data-nav="offline" data-i18n="nav_offline">Offline Poster</a>
+    <a href="tiktok.html" data-nav="tiktok" data-i18n="nav_tiktok">TikTok</a>
+    <a href="meta.html" data-nav="meta" data-i18n="nav_meta">Meta Ads</a>
+    <a href="partners.html" data-nav="partners" data-i18n="nav_partners">Partnership</a>
+    <a href="assets.html" data-nav="assets" data-i18n="nav_assets">Assets</a>
+    <a href="reports.html" data-nav="reports" data-i18n="nav_reports">Reports</a>
+  </nav>
+  <div class="tools">
+    <span class="role-chip"><span data-i18n="role">Role</span>: <b id="roleIndicator">Admin</b></span>
+    <button class="btn ghost small" id="langToggle" type="button">ID / 中文</button>
+    <button class="btn ghost small" id="exportJsonBtn" type="button" data-i18n="export_json">Export JSON</button>
+    <label class="btn ghost small file-label"><span data-i18n="import_json">Import JSON</span><input id="importJsonInput" type="file" accept="application/json" hidden></label>
+  </div>
+</header>
+<div id="accessDenied" class="container hidden"><section class="card danger"><h1 data-i18n="access_denied">Akses ditolak</h1><p data-i18n="access_denied_desc">Role ini tidak punya akses ke Marketing module.</p></section></div>
+
+<main class="container" id="appRoot">
+<section class="page-title"><div><p class="eyebrow" data-i18n="tiktok_eyebrow">Organic + Ads</p><h1 data-i18n="tiktok_title">TikTok Marketing</h1></div><div class="actions"><button class="btn primary" id="addTiktokOrganic" type="button" data-i18n="add_video">+ Video Organic</button><button class="btn primary" id="addTiktokAd" type="button" data-i18n="add_campaign">+ Campaign Ads</button><button class="btn" id="importTiktokCsv" type="button" data-i18n="import_csv">Import CSV Metrics</button></div></section>
+<section class="tabs"><button class="tab active" data-tab="organic" data-i18n="tiktok_organic">TikTok Organic</button><button class="tab" data-tab="ads" data-i18n="tiktok_ads">TikTok Ads</button></section>
+<section id="organicPanel"><section class="card filters"><input id="organicSearch" data-i18n-placeholder="search" placeholder="Search caption/PIC..."/><select id="organicStatus"><option value="" data-i18n="all_status">All Status</option><option>Published</option><option>Scheduled</option><option>Draft</option><option>Taken Down</option></select><select id="organicType"><option value="" data-i18n="all_type">All Type</option><option>Edukasi</option><option>Testimoni</option><option>Behind the Scenes</option><option>Promo</option><option>Trend</option><option>Lain</option></select><button class="btn danger" id="deleteSelectedOrganic">Delete Selected</button></section><section class="card table-card"><div class="table-wrap"><table class="data-table"><thead><tr><th><input id="selectAllOrganic" type="checkbox"></th><th data-i18n="date">Tanggal</th><th data-i18n="caption">Caption</th><th data-i18n="type">Type</th><th data-i18n="pic">PIC</th><th data-i18n="status">Status</th><th>Views</th><th>Eng%</th><th data-i18n="action">Action</th></tr></thead><tbody id="organicRows"></tbody></table></div></section></section>
+<section id="adsPanel" class="hidden"><section class="card filters"><input id="adSearch" data-i18n-placeholder="search" placeholder="Search campaign..."/><select id="adStatus"><option value="" data-i18n="all_status">All Status</option><option>Active</option><option>Paused</option><option>Ended</option></select><button class="btn danger" id="deleteSelectedAds">Delete Selected</button></section><section class="card table-card"><div class="table-wrap"><table class="data-table"><thead><tr><th><input id="selectAllAds" type="checkbox"></th><th>Campaign</th><th>Date</th><th>Objective</th><th>Budget</th><th>Status</th><th>Spend</th><th>Conversions</th><th>Action</th></tr></thead><tbody id="adsRows"></tbody></table></div></section></section>
+</main>
+<div id="toastRoot" class="toast-root"></div>
+</body>
+</html>

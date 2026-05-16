@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTOKITA Financial — Motor Sitaan</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css"><link rel="stylesheet" href="../shared/css/reset.css"><link rel="stylesheet" href="../shared/css/components.css"><link rel="stylesheet" href="../shared/css/layout.css"><link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/operational-bridge.js" defer></script>
+  <script src="js/jurnal.js" defer></script>
+  <script src="js/commission.js" defer></script>
+  <script src="js/pdf-export.js" defer></script>
+  <script src="js/motor-sitaan.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+<script src="../shared/js/role-permissions.js" defer></script>
+<script src="../shared/js/auth.js" defer></script>
+<script src="../shared/js/nav.js" defer></script>
+</head>
+<body data-page="motor_sitaan" data-module="financial" data-protected="true">
+<header class="topbar"><a class="brand" href="index.html"><img src="assets/otokita-logo.png" alt="OTOKITA" class="brand-logo" /><div><strong>OTOKITA</strong><span data-i18n="module_financial">Financial Module</span></div></a><nav class="nav"><a href="index.html" data-nav="dashboard" data-i18n="nav_dashboard">Dashboard</a><a href="jurnal.html" data-nav="jurnal" data-i18n="nav_jurnal">Jurnal</a><a href="buku-besar.html" data-nav="ledger" data-i18n="nav_ledger">Buku Besar</a><a href="laporan.html" data-nav="reports" data-i18n="nav_reports">Laporan</a><a href="motor-sitaan.html" data-nav="motor_sitaan" data-i18n="motor_sitaan">Motor Sitaan</a></nav><div class="header-tools"><a class="btn ghost small" id="financialHomeBtn" href="../index.html">← Home</a><span class="role-chip"><span data-i18n="role_label">Role</span>: <b id="roleIndicator">Admin</b></span><button class="btn ghost small" id="globalLangToggle" type="button">ID / 中文</button><button class="btn ghost small" id="headerExportJson" type="button" data-i18n="export_json">Export JSON</button><label class="btn ghost small file-btn"><span data-i18n="import_json">Import JSON</span><input id="headerImportJson" type="file" accept="application/json" hidden /></label></div></header>
+<main class="container access-wrap"><section id="accessDenied" class="card danger hidden"><h1 data-i18n="access_denied_title">Akses ditolak</h1><p data-i18n="access_denied_desc">Role Sales/Marketing tidak punya akses ke Financial Module.</p></section><section id="pageContent"><section class="page-title-row"><div><p class="eyebrow">Financial + Inventory Sitaan</p><h1 data-i18n="motor_sitaan">Motor Sitaan</h1></div><div class="quick-actions"><button class="btn primary" id="addMotorBtn" type="button">+ Tambah Manual</button><button class="btn" onclick="PDFExport.exportElement('motorTableCard','Motor Sitaan')" type="button" data-i18n="export_pdf">Export PDF</button></div></section><section class="kpi-grid" id="motorKpis"></section><section class="card filters-card"><div class="filters"><input id="motorSearch" placeholder="Search deal / customer / motor"><select id="motorStatusFilter"><option value="">Semua Status</option><option value="available">available</option><option value="sold">sold</option><option value="scrap">scrap</option></select><select id="motorSalesFilter"></select></div></section><section class="card table-card" id="motorTableCard"><div class="table-wrap"><table class="data-table"><thead><tr><th><input type="checkbox"></th><th>Deal Ref</th><th>Customer</th><th>Motorcycle</th><th>Sales PIC</th><th>Date Sitaan</th><th>Original Principal</th><th>Total Writeoff</th><th>Status</th><th>Sale Date</th><th>Sale Price</th><th>Margin</th><th>Komisi</th><th>Action</th></tr></thead><tbody id="motorTbody"></tbody></table></div></section></section></main><div id="toastRoot" class="toast-root"></div></body></html>

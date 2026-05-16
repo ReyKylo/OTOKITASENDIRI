@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTOKITA Operational — Dashboard</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css" />
+  <link rel="stylesheet" href="../shared/css/reset.css" />
+  <link rel="stylesheet" href="../shared/css/components.css" />
+  <link rel="stylesheet" href="../shared/css/layout.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="../shared/js/storage.js" defer></script>
+  <script src="../shared/js/i18n.js" defer></script>
+  <script src="../shared/js/ui.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+  <script src="../shared/js/role-permissions.js" defer></script>
+  <script src="../shared/js/auth.js" defer></script>
+  <script src="../shared/js/nav.js" defer></script>
+  <script src="../shared/js/employee-kpi-engine.js" defer></script>
+</head>
+<body data-page="dashboard" data-module="operational" data-protected="true">
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/otokita-logo.png" alt="OTOKITA logo" class="brand-logo" />
+      <div>
+        <strong>OTOKITA</strong>
+        <span data-i18n="module_operational">Operational Module</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" data-nav="dashboard" data-i18n="nav_dashboard">Dashboard</a>
+      <a href="calculator.html" data-nav="calculator" data-i18n="nav_calculator">Calculator</a>
+      <a href="leads.html" data-nav="leads" data-i18n="nav_leads">Leads</a>
+      <a href="inventory.html" data-nav="inventory"><span data-i18n="nav_inventory">Inventory</span> <span id="pendingBadge" class="badge hidden">0</span></a>
+    </nav>
+    <div class="header-tools">
+      <span class="role-chip"><span data-i18n="role_label">Role</span>: <b id="roleIndicator">Admin</b></span>
+      <button class="btn ghost small" id="globalLangToggle" type="button">ID / 中文</button>
+      <button class="btn ghost small globalExportJson" type="button" data-i18n="save_json">Save JSON</button>
+      <label class="btn ghost small file-btn"><span data-i18n="import_json">Import JSON</span><input class="globalImportJson" type="file" accept="application/json" hidden /></label>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-title-row">
+      <div>
+        <p class="eyebrow" data-i18n="dashboard_eyebrow">Monitoring harian</p>
+        <h1 data-i18n="dashboard_title">Dashboard Operational</h1>
+      </div>
+      <div class="quick-actions">
+        <a class="btn primary" href="calculator.html" data-i18n="quick_new_intake">+ New Intake</a>
+        <a class="btn" href="leads.html" data-i18n="quick_view_leads">View Leads</a>
+        <a class="btn" href="inventory.html" data-i18n="quick_view_inventory">View Inventory</a>
+      </div>
+    </section>
+
+    <section class="kpi-grid" id="kpiGrid"></section>
+
+    <section class="card" id="salesKpiSection">
+      <div class="card-head">
+        <h2 data-i18n="operational.kpi_sales">KPI Sales / 销售KPI</h2>
+        <small data-i18n="operational.kpi_bulan_ini">KPI Bulan Ini</small>
+      </div>
+      <div id="salesKpiCards" class="grid three"></div>
+    </section>
+
+
+    <section class="grid two">
+      <article class="card chart-card">
+        <div class="card-head">
+          <h2 data-i18n="chart_leads_status">Leads per Status</h2>
+        </div>
+        <canvas id="leadsStatusChart" height="180"></canvas>
+      </article>
+      <article class="card chart-card">
+        <div class="card-head">
+          <h2 data-i18n="chart_deals_product">Deals per Produk</h2>
+        </div>
+        <canvas id="dealsProductChart" height="180"></canvas>
+      </article>
+    </section>
+
+    <section class="grid three">
+      <article class="card">
+        <div class="card-head">
+          <h2 data-i18n="followup_today">Follow-up Hari Ini</h2>
+        </div>
+        <div id="followupToday" class="list-stack"></div>
+      </article>
+
+      <article class="card admin-only">
+        <div class="card-head">
+          <h2 data-i18n="pending_approval">Pending Approval</h2>
+        </div>
+        <div id="pendingApprovals" class="list-stack"></div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h2 data-i18n="alert_deals">Alert Deals</h2>
+        </div>
+        <div id="alertDeals" class="list-stack"></div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h2 data-i18n="top_sales_month">Top Sales Bulan Ini</h2>
+        </div>
+        <div id="topSalesMonth" class="list-stack"></div>
+      </article>
+    </section>
+  </main>
+
+  <div id="toastRoot" class="toast-root"></div>
+</body>
+</html>

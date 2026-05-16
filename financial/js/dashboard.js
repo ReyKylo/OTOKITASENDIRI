@@ -1,0 +1,27 @@
+(function(){
+  let chartA, chartB;
+  function kpiCard(label,value){ return `<div class="kpi-card"><span>${label}</span><strong>${value}</strong></div>`; }
+  function renderKpis(){ const m=storage.getSettings().finance?.active_period || UI.monthKey(); const start=UI.monthStart(m), end=UI.monthEnd(m); const bs=Report.balanceSheet(end); const is=Report.incomeStatement(start,end); const cash=Report.cashBalance ? Report.cashBalance(end) : Report.balanceCode('11',end); document.getElementById('kpiGrid').innerHTML=[kpiCard(i18n.t('total_assets'),UI.rp(bs.total_assets)),kpiCard(i18n.t('total_liabilities'),UI.rp(bs.total_liabilities)),kpiCard(i18n.t('total_equity'),UI.rp(bs.total_equity)),kpiCard(i18n.t('revenue_month'),UI.rp(is.total_revenue)),kpiCard(i18n.t('expense_month'),UI.rp(is.total_expense)),kpiCard(i18n.t('net_income_month'),UI.rp(is.net_income)),kpiCard(i18n.t('cash_on_hand'),UI.rp(cash))].join(''); }
+  function lastMonths(n=6){ const arr=[]; const now=new Date(); for(let i=n-1;i>=0;i--){ const d=new Date(now.getFullYear(),now.getMonth()-i,1); arr.push(d.toISOString().slice(0,7)); } return arr; }
+  function renderCharts(){ if(!window.Chart) return; const months=lastMonths(6); const labels=months.map(Report.monthLabel); const rev=months.map(m=>Report.incomeStatement(UI.monthStart(m),UI.monthEnd(m)).total_revenue); const exp=months.map(m=>Report.incomeStatement(UI.monthStart(m),UI.monthEnd(m)).total_expense); const ctx=document.getElementById('revExpChart'); if(ctx){ chartA?.destroy(); chartA=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:i18n.t('revenue'),data:rev},{label:i18n.t('expense'),data:exp}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}}); }
+    const m=storage.getSettings().finance?.active_period || UI.monthKey(); const mix=[Report.accountAmount('41100',UI.monthStart(m),UI.monthEnd(m)),Report.accountAmount('41200',UI.monthStart(m),UI.monthEnd(m)),Report.accountAmount('41300',UI.monthStart(m),UI.monthEnd(m)),Report.accountAmount('41900',UI.monthStart(m),UI.monthEnd(m))]; const ctx2=document.getElementById('revenueMixChart'); if(ctx2){ chartB?.destroy(); chartB=new Chart(ctx2,{type:'doughnut',data:{labels:[i18n.t('revenue_fee_js'),i18n.t('revenue_fee_installment'),i18n.t('revenue_margin_bridging'),i18n.getLang()==='zh'?'其他':'Lain'],datasets:[{data:mix}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}}); } }
+  function renderPending(){ const el=document.getElementById('pendingEntries'); if(!el||!window.Bridge) return; const deals=Bridge.getPendingDeals(); el.innerHTML=deals.map((d,idx)=>`<div class="list-item"><strong>${UI.esc(d.customer_name||'-')} — ${UI.esc(d._pending_label||'')}</strong><small>Deal ${UI.esc(d.source_deal_number||d.original_deal_id||d.id||'-')} · masuk ${UI.esc(d.inventory_in_date||'-')} · ${UI.esc(d.product_type||d.product||'')} · pokok ${UI.rp(Bridge.principalOf(d))} · fee upfront ${UI.rp(Bridge.feeOf(d))} · ${UI.esc(d.status||'')}</small><button class="btn primary small review-deal" data-idx="${idx}">Review & Post</button></div>`).join('') || `<div class="empty-state">${i18n.t('no_pending')}</div>`; el.querySelectorAll('.review-deal').forEach(b=>b.onclick=()=>{ const deal=deals[Number(b.dataset.idx)]; const entry=Bridge.generateEntryTemplate(deal, deal._pending_event); Journal.previewEntry(entry,()=>Bridge.postFromDeal(deal)); }); }
+  function renderRecent(){ const el=document.getElementById('recentJournal'); if(!el) return; const rows=storage.list('journal').slice().sort((a,b)=>String(b.date).localeCompare(String(a.date))).slice(0,10); el.innerHTML=rows.map(e=>`<div class="list-item"><strong>${e.journal_number} — ${UI.esc(e.description)}</strong><small>${e.date} · ${UI.esc(e.source)} · ${UI.rp(UI.sumLines(e.lines).debit)}</small></div>`).join('') || `<div class="empty-state">${i18n.t('no_journal')}</div>`; }
+
+  function renderWageActions(){
+    if(window.Commission) Commission.syncFromOperational();
+    const el=document.getElementById('pendingWageActions'); if(!el) return;
+    const pending=storage.list('commissions').filter(c=>c.status==='pending').length;
+    const approved=storage.list('commissions').filter(c=>c.status==='approved').length;
+    el.innerHTML=`<a class="list-item" href="laporan.html#wage"><strong>${pending} ${i18n.t('pending_commission')}</strong><small>${approved} approved awaiting payment</small></a>`;
+  }
+  function renderMotorSitaanPending(){
+    const el=document.getElementById('motorSitaanPending'); if(!el) return;
+    const rows=storage.list('motor_sitaan').filter(m=>m.status==='available');
+    el.innerHTML=rows.slice(0,5).map(m=>`<a class="list-item" href="motor-sitaan.html"><strong>${UI.esc(m.customer_name||'-')}</strong><small>${UI.esc(m.motorcycle_info||'-')} · ${UI.rp(m.total_writeoff)}</small></a>`).join('') || `<div class="empty-state">Tidak ada motor sitaan available.</div>`;
+  }
+
+  function renderAll(){ renderKpis(); renderCharts(); renderPending(); renderRecent(); renderWageActions(); renderMotorSitaanPending(); }
+  function init(){ if(document.body.dataset.page!=='dashboard') return; renderAll(); document.getElementById('reviewAllPending')?.addEventListener('click',()=>Journal.reviewPending()); document.getElementById('exportMonthPdf')?.addEventListener('click',()=>PDFExport.exportElement('dashboardPrintArea',i18n.t('dashboard_title'))); document.addEventListener('language:changed',renderAll); }
+  document.addEventListener('DOMContentLoaded',init);
+})();

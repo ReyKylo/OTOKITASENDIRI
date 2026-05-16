@@ -1,0 +1,24 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>OTOKITA Management — OKR</title><link rel="stylesheet" href="../shared/css/tokens.css"><link rel="stylesheet" href="../shared/css/reset.css"><link rel="stylesheet" href="../shared/css/components.css"><link rel="stylesheet" href="../shared/css/layout.css"><link rel="stylesheet" href="css/style.css"><script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script src="js/quarter-util.js" defer></script>
+<script src="js/storage.js" defer></script>
+<script src="js/i18n.js" defer></script>
+<script src="js/ui.js" defer></script>
+<script src="js/module-bridge.js" defer></script>
+<script src="js/metric-engine.js" defer></script>
+<script src="js/okr.js" defer></script>
+<script src="js/kpi.js" defer></script>
+<script src="js/employee.js" defer></script>
+<script src="js/planning.js" defer></script>
+<script src="js/calendar-integration.js" defer></script>
+<script src="js/reports.js" defer></script>
+<script src="js/pdf-export.js" defer></script>
+<script src="js/dashboard.js" defer></script>
+<script src="js/app.js" defer></script>
+
+<script src="../shared/js/role-permissions.js" defer></script>
+<script src="../shared/js/auth.js" defer></script>
+<script src="../shared/js/nav.js" defer></script>
+<script src="../shared/js/employee-kpi-engine.js" defer></script>
+</head><body data-page="okr" data-module="management" data-protected="true"><header class="topbar"><div class="brand"><img src="assets/otokita-logo.png" class="brand-logo" alt="OTOKITA"><div><strong>OTOKITA</strong><span data-i18n="management_module">Management Module</span></div></div><nav class="nav"><a href="index.html" data-nav="dashboard" data-i18n="dashboard">Dashboard</a><a href="okr.html" data-nav="okr" data-i18n="okr">OKR</a><a href="kpi.html" data-nav="kpi" data-i18n="kpi">KPI</a><a href="employee.html" data-nav="employee" data-i18n="employee">Employee</a><a href="planning.html" data-nav="planning" data-i18n="planning">Planning</a><a href="reports.html" data-nav="reports" data-i18n="reports">Reports</a></nav><div class="header-tools"><div id="moduleStatusDots"></div><span class="badge-pill">Role: <b id="roleIndicator">GM</b></span><button class="btn ghost small" id="globalLangToggle" type="button">ID / 中文</button></div></header><main class="container"><section class="page-title-row"><div><p class="eyebrow">Objective & Key Results</p><h1 data-i18n="okr">OKR</h1></div><div class="quick-actions"><button class="btn" id="prevQuarter">←</button><select id="quarterSelect"></select><button class="btn" id="nextQuarter">→</button><button class="btn primary" id="newOkrBtn" data-i18n="new_okr">+ New OKR</button><button class="btn gold" id="useTemplateBtn" data-i18n="use_template">Use Template</button><button class="btn" onclick="PDFExport.exportNode(document.getElementById('okrList'),'okr-review.pdf')" data-i18n="export_pdf">Export PDF</button></div></section><section class="card"><div class="card-head"><h2 data-i18n="okr_templates">OKR Templates</h2></div><p>Pertumbuhan Bisnis · Operational Excellence · Marketing Reach · Team Development</p></section><section id="okrList" class="grid two"></section></main><div id="toastRoot" class="toast-root"></div></body></html>

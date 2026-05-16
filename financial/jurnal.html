@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTOKITA Financial — Jurnal</title>
+  <link rel="stylesheet" href="../shared/css/tokens.css"><link rel="stylesheet" href="../shared/css/reset.css"><link rel="stylesheet" href="../shared/css/components.css"><link rel="stylesheet" href="../shared/css/layout.css"><link rel="stylesheet" href="css/style.css" />
+  <script src="js/storage.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/operational-bridge.js" defer></script>
+  <script src="js/coa.js" defer></script>
+  <script src="js/jurnal.js" defer></script>
+  <script src="js/commission.js" defer></script>
+  <script src="js/employee.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+<script src="../shared/js/role-permissions.js" defer></script>
+<script src="../shared/js/auth.js" defer></script>
+<script src="../shared/js/nav.js" defer></script>
+</head>
+<body data-page="jurnal" data-module="financial" data-protected="true">
+<header class="topbar">
+  <a class="brand" href="index.html"><img src="assets/otokita-logo.png" alt="OTOKITA" class="brand-logo" /><div><strong>OTOKITA</strong><span data-i18n="module_financial">Financial Module</span></div></a>
+  <nav class="nav"><a href="index.html" data-nav="dashboard" data-i18n="nav_dashboard">Dashboard</a><a href="jurnal.html" data-nav="jurnal" data-i18n="nav_jurnal">Jurnal</a><a href="buku-besar.html" data-nav="ledger" data-i18n="nav_ledger">Buku Besar</a><a href="laporan.html" data-nav="reports" data-i18n="nav_reports">Laporan</a><a href="motor-sitaan.html" data-nav="motor_sitaan" data-i18n="motor_sitaan">Motor Sitaan</a></nav>
+  <div class="header-tools"><a class="btn ghost small" id="financialHomeBtn" href="../index.html">← Home</a><span class="role-chip"><span data-i18n="role_label">Role</span>: <b id="roleIndicator">Admin</b></span><button class="btn ghost small" id="globalLangToggle" type="button">ID / 中文</button><button class="btn ghost small" id="headerExportJson" type="button" data-i18n="export_json">Export JSON</button><label class="btn ghost small file-btn"><span data-i18n="import_json">Import JSON</span><input id="headerImportJson" type="file" accept="application/json" hidden /></label></div>
+</header>
+<main class="container access-wrap">
+  <section id="accessDenied" class="card danger hidden"><h1 data-i18n="access_denied_title">Akses ditolak</h1><p data-i18n="access_denied_desc">Role Sales/Marketing tidak punya akses ke Financial Module.</p></section>
+  <section id="pageContent">
+    <section class="page-title-row">
+      <div><p class="eyebrow" data-i18n="jurnal_eyebrow">Double-entry accounting</p><h1 data-i18n="jurnal_title">Jurnal Umum</h1></div>
+      <div class="quick-actions"><button class="btn primary" id="addJournalBtn" type="button" data-i18n="add_manual_journal">+ Tambah Jurnal Manual</button><button class="btn" id="reviewPendingBtn" type="button" data-i18n="review_pending_auto">Review Pending Auto Entries</button><button class="btn accent" id="openImportBtn" type="button" data-i18n="import_cashflow_ops">Import dari OPS JSON</button></div>
+    </section>
+    <section class="tabs">
+      <div class="tab-buttons"><button class="tab-btn active" data-tab="journalTab" data-i18n="tab_journal">Jurnal Umum</button><button class="tab-btn" data-tab="coaTab" data-i18n="tab_coa">COA Management</button><button class="tab-btn" data-tab="employeeTab" data-i18n="employee">Employee</button><button class="tab-btn" data-tab="settingsTab" data-i18n="tab_settings">Settings</button></div>
+      <article id="journalTab" class="tab-panel active">
+        <section class="card filters-card"><div class="filters"><input id="journalSearch" placeholder="Search keterangan / no jurnal / client" /><input id="journalStart" type="date" /><input id="journalEnd" type="date" /><select id="journalAccount"></select><select id="journalSource"><option value="" data-i18n="filter_all_source">Semua Sumber</option><option value="manual">manual</option><option value="auto_from_deal">auto_from_deal</option><option value="import_ops_json">import_ops_json</option><option value="import_cashflow">import_cashflow</option><option value="commission_payment">commission_payment</option><option value="wage_payment">wage_payment</option><option value="motor_sitaan_sale">motor_sitaan_sale</option></select><button class="btn danger" id="bulkDeleteJournal" type="button" data-i18n="delete_selected">Delete Selected</button></div></section>
+        <section class="card table-card"><div class="table-wrap"><table class="data-table"><thead><tr><th><input id="selectAllJournal" type="checkbox" /></th><th data-i18n="col_date">Tanggal</th><th data-i18n="col_journal_no">No Jurnal</th><th data-i18n="col_doc_no">No Doc</th><th data-i18n="col_desc">Keterangan</th><th data-i18n="col_account">Akun</th><th data-i18n="debit">Debit</th><th data-i18n="credit">Kredit</th><th data-i18n="client">Client</th><th data-i18n="ref">Ref</th><th data-i18n="proof">Proof</th><th data-i18n="action">Action</th></tr></thead><tbody id="journalTbody"></tbody></table></div></section>
+      </article>
+      <article id="coaTab" class="tab-panel">
+        <section class="card"><div class="card-head"><h2 data-i18n="coa_title">Chart of Accounts</h2><div class="action-row"><button class="btn primary" id="addAccountBtn" type="button" data-i18n="add_account">+ Tambah Akun</button><button class="btn danger" id="bulkDeleteCoa" type="button" data-i18n="delete_selected">Delete Selected</button></div></div><div class="table-wrap"><table class="data-table coa-table"><thead><tr><th><input id="selectAllCoa" type="checkbox" /></th><th data-i18n="code">Kode</th><th data-i18n="account_name">Nama Akun</th><th data-i18n="account_name_zh">Nama 中文</th><th data-i18n="type">Tipe</th><th data-i18n="normal">Normal</th><th data-i18n="opening_balance">Saldo Awal</th><th data-i18n="action">Action</th></tr></thead><tbody id="coaTbody"></tbody></table></div></section>
+      </article>
+      <article id="employeeTab" class="tab-panel">
+        <section class="card"><div class="card-head"><div><h2 data-i18n="employee">Karyawan</h2><p class="muted">Temporary di Financial. Nanti bisa dipindah ke Management module.</p></div><div class="action-row"><button class="btn primary" id="addEmployeeBtn" type="button">+ Tambah Karyawan</button><button class="btn" id="goWageBtn" type="button" data-i18n="wage">Go to Wage Section</button></div></div><div class="warning-list"><div class="warning-item"><span data-i18n="pending_commission">Komisi Pending</span>: <b id="employeePendingCommissionCount">0</b></div></div><div class="table-wrap"><table class="data-table"><thead><tr><th data-i18n="employee_name">Nama</th><th>Role</th><th>Status</th><th data-i18n="base_salary">Base Salary</th><th data-i18n="commission">Commission Rules</th><th data-i18n="sales_tier">Current Tier</th><th data-i18n="action">Action</th></tr></thead><tbody id="employeeTbody"></tbody></table></div></section>
+      </article>
+      <article id="settingsTab" class="tab-panel">
+        <details class="card settings-panel" open><summary data-i18n="settings_title">Settings</summary><div class="form-grid settings-grid"><label><span data-i18n="language_label">Bahasa</span><select id="settingLanguage"><option value="id">ID</option><option value="zh">中文</option></select></label><label><span data-i18n="role_label">Role</span><select id="settingRole"><option>Admin</option><option>Finance</option><option>Sales</option><option>Marketing</option></select></label><label><span data-i18n="active_period">Periode Aktif</span><input id="settingPeriod" type="month" /></label></div><div class="action-row"><button class="btn primary" id="saveSettingsBtn" type="button" data-i18n="save_settings">Save Settings</button><button class="btn" id="exportJsonBtn" type="button" data-i18n="export_json">Export JSON</button><label class="btn file-btn"><span data-i18n="import_json">Import JSON</span><input id="importJsonInput" type="file" accept="application/json" hidden /></label><button class="btn danger" id="resetAllBtn" type="button" data-i18n="reset_all">Reset All Data</button></div></details>
+      </article>
+    </section>
+  </section>
+</main>
+<div id="toastRoot" class="toast-root"></div>
+</body>
+</html>

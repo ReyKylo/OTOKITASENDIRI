@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OTOKITA Command Center</title>
+  <link rel="stylesheet" href="shared/css/tokens.css" />
+  <link rel="stylesheet" href="shared/css/reset.css" />
+  <link rel="stylesheet" href="shared/css/components.css" />
+  <link rel="stylesheet" href="shared/css/layout.css" />
+  <script src="shared/js/storage.js" defer></script>
+  <script src="shared/js/i18n.js" defer></script>
+  <script src="shared/js/ui.js" defer></script>
+  <script src="shared/js/role-permissions.js" defer></script>
+  <script src="shared/js/auth.js" defer></script>
+  <script src="shared/js/nav.js" defer></script>
+  <script src="shared/js/quarter-util.js" defer></script>
+  <script src="shared/js/module-bridge.js" defer></script>
+  <script src="shared/js/employee-kpi-engine.js" defer></script>
+</head>
+<body data-module="home" data-protected="false" class="home-command-body">
+  <main class="home-command-shell">
+    <section class="home-hero-card">
+      <div class="home-hero-bg"></div>
+      <div class="home-hero-top">
+        <div class="home-brand">
+          <img src="shared/assets/logo.png" alt="OTOKITA" onerror="this.style.display='none'" />
+          <div>
+            <b>OTOKITA</b>
+            <span>Internal Command Center</span>
+          </div>
+        </div>
+        <div class="home-actions-top">
+          <button class="home-lang-btn" id="langHomeToggle">ID / 中文</button>
+        </div>
+      </div>
+
+      <div class="home-hero-main">
+        <div>
+          <p class="home-eyebrow">LOCAL-FIRST SYSTEM</p>
+          <h1>OTOKITA<br />Command Center</h1>
+          <p class="home-subtitle">Satu pintu untuk Operational, Financial, Marketing, dan Management. Langsung jalan di browser, tanpa login, tanpa backend.</p>
+          <div class="home-hero-pills">
+            <span id="todayPill">Hari ini</span>
+            <span id="quarterPill">Q2 2026</span>
+            <span>Full Local Access</span>
+          </div>
+        </div>
+        <div class="home-hero-panel">
+          <span class="home-panel-label">Ringkasan Hari Ini</span>
+          <strong id="heroMainMetric">—</strong>
+          <small id="heroMainCaption">Active deals saat ini</small>
+          <div class="home-mini-grid" id="heroMiniGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-module-grid" id="moduleCards"></section>
+
+    <section class="home-content-grid">
+      <article class="home-card home-wide">
+        <div class="home-card-head">
+          <div>
+            <p class="home-eyebrow small">SALES PERFORMANCE</p>
+            <h2>KPI Sales Bulan Ini</h2>
+          </div>
+          <a href="management/kpi.html" class="home-link-btn">Manage KPI →</a>
+        </div>
+        <div id="salesKpiCards" class="home-kpi-row"></div>
+      </article>
+
+      <article class="home-card">
+        <div class="home-card-head">
+          <div>
+            <p class="home-eyebrow small">QUICK ACTIONS</p>
+            <h2>Aksi Cepat</h2>
+          </div>
+        </div>
+        <div class="home-action-list">
+          <a href="operational/calculator.html"><b>+ New Intake</b><span>Input customer baru</span></a>
+          <a href="financial/jurnal.html"><b>+ Jurnal Manual</b><span>Catat transaksi</span></a>
+          <a href="marketing/offline.html"><b>+ Poster Batch</b><span>Tracking sebar poster</span></a>
+          <a href="management/planning.html"><b>+ Task</b><span>Planning eksekusi tim</span></a>
+        </div>
+      </article>
+
+      <article class="home-card">
+        <div class="home-card-head">
+          <div>
+            <p class="home-eyebrow small">ACTIVITY</p>
+            <h2>Aktivitas Terbaru</h2>
+          </div>
+        </div>
+        <div id="recentActivity" class="home-activity-list"></div>
+      </article>
+
+      <article class="home-card home-wide">
+        <div class="home-card-head">
+          <div>
+            <p class="home-eyebrow small">DATA HEALTH</p>
+            <h2>Status Data Module</h2>
+          </div>
+          <button class="home-link-btn" id="exportHomeJson">Export Backup JSON</button>
+        </div>
+        <div id="dataHealth" class="home-health-grid"></div>
+      </article>
+    </section>
+  </main>
+  <div id="toastRoot" class="toast-root"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      await storage.init();
+      await i18n.init();
+
+      const homeLang = () => (i18n.current?.() || i18n.lang?.() || localStorage.getItem('otokita.lang') || 'id');
+      const H = {
+        id: {
+          kicker:'LOCAL-FIRST SYSTEM', title:'OTOKITA<br />Command Center', subtitle:'Satu pintu untuk Operational, Financial, Marketing, dan Management. Langsung jalan di browser, tanpa login, tanpa backend.', full:'Full Local Access', summary:'Ringkasan Hari Ini', activeDeals:'Active deals saat ini', salesPerf:'SALES PERFORMANCE', salesKpi:'KPI Sales Bulan Ini', manageKpi:'Manage KPI →', quick:'QUICK ACTIONS', quickTitle:'Aksi Cepat', activity:'ACTIVITY', activityTitle:'Aktivitas Terbaru', health:'DATA HEALTH', healthTitle:'Status Data Module', export:'Export Backup JSON', noKpi:'Belum ada KPI Sales', noKpiDesc:'Assign KPI di Management → KPI → Per-Employee KPI.', open:'Open Module →', leadMonth:'Lead bulan ini', dealActive:'Deal aktif', conversion:'Conversion', revenue:'Revenue Mei', netIncome:'Net Income', spend:'Spend', videos:'Videos', campaign:'Campaign', okr:'OKR Avg', task:'Task', employee:'Employee', newIntake:'+ New Intake', newIntakeDesc:'Input customer baru', manualJournal:'+ Jurnal Manual', manualJournalDesc:'Catat transaksi', posterBatch:'+ Poster Batch', posterBatchDesc:'Tracking sebar poster', taskAction:'+ Task', taskDesc:'Planning eksekusi tim', noActivity:'Belum ada activity.'
+        },
+        zh: {
+          kicker:'本地优先系统', title:'OTOKITA<br />指挥中心', subtitle:'统一进入运营、财务、营销和管理模块。直接在浏览器运行，无登录、无后端。', full:'本地全权限', summary:'今日摘要', activeDeals:'当前活跃交易', salesPerf:'销售表现', salesKpi:'本月销售KPI', manageKpi:'管理KPI →', quick:'快捷操作', quickTitle:'快捷操作', activity:'动态', activityTitle:'最近动态', health:'数据状态', healthTitle:'模块数据状态', export:'导出备份JSON', noKpi:'暂无销售KPI', noKpiDesc:'请在管理 → KPI → 员工KPI 中分配。', open:'打开模块 →', leadMonth:'本月线索', dealActive:'活跃交易', conversion:'转化率', revenue:'五月收入', netIncome:'净利润', spend:'支出', videos:'视频', campaign:'活动', okr:'OKR平均', task:'任务', employee:'员工', newIntake:'+ 新客户录入', newIntakeDesc:'录入新客户', manualJournal:'+ 手动凭证', manualJournalDesc:'记录交易', posterBatch:'+ 海报批次', posterBatchDesc:'追踪海报投放', taskAction:'+ 任务', taskDesc:'团队执行计划', noActivity:'暂无动态。'
+        }
+      };
+      const L = H[homeLang()] || H.id;
+      function applyHomeStatic(){
+        document.querySelector('.home-eyebrow') && (document.querySelector('.home-eyebrow').textContent = L.kicker);
+        document.querySelector('.home-hero-main h1') && (document.querySelector('.home-hero-main h1').innerHTML = L.title);
+        document.querySelector('.home-subtitle') && (document.querySelector('.home-subtitle').textContent = L.subtitle);
+        const pills = document.querySelectorAll('.home-hero-pills span'); if(pills[2]) pills[2].textContent = L.full;
+        document.querySelector('.home-panel-label') && (document.querySelector('.home-panel-label').textContent = L.summary);
+        const heads = document.querySelectorAll('.home-card-head');
+        if(heads[0]){ heads[0].querySelector('.home-eyebrow').textContent=L.salesPerf; heads[0].querySelector('h2').textContent=L.salesKpi; heads[0].querySelector('a').textContent=L.manageKpi; }
+        if(heads[1]){ heads[1].querySelector('.home-eyebrow').textContent=L.quick; heads[1].querySelector('h2').textContent=L.quickTitle; }
+        if(heads[2]){ heads[2].querySelector('.home-eyebrow').textContent=L.activity; heads[2].querySelector('h2').textContent=L.activityTitle; }
+        if(heads[3]){ heads[3].querySelector('.home-eyebrow').textContent=L.health; heads[3].querySelector('h2').textContent=L.healthTitle; heads[3].querySelector('button').textContent=L.export; }
+        const qa = document.querySelectorAll('.home-action-list a');
+        if(qa[0]){ qa[0].querySelector('b').textContent=L.newIntake; qa[0].querySelector('span').textContent=L.newIntakeDesc; }
+        if(qa[1]){ qa[1].querySelector('b').textContent=L.manualJournal; qa[1].querySelector('span').textContent=L.manualJournalDesc; }
+        if(qa[2]){ qa[2].querySelector('b').textContent=L.posterBatch; qa[2].querySelector('span').textContent=L.posterBatchDesc; }
+        if(qa[3]){ qa[3].querySelector('b').textContent=L.taskAction; qa[3].querySelector('span').textContent=L.taskDesc; }
+      }
+      applyHomeStatic();
+
+      const money = (n) => 'Rp' + Number(n || 0).toLocaleString('id-ID');
+      const monthKey = new Date().toISOString().slice(0, 7);
+      const today = new Date();
+      const quarter = window.QuarterUtil?.getCurrentQuarter?.() || `${today.getFullYear()}-Q${Math.floor(today.getMonth()/3)+1}`;
+      const fmtDate = today.toLocaleDateString('id-ID', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+
+      document.getElementById('todayPill').textContent = fmtDate;
+      document.getElementById('quarterPill').textContent = window.QuarterUtil?.formatQuarter?.(quarter, i18n.current?.() || 'id') || quarter;
+      document.getElementById('langHomeToggle')?.addEventListener('click', () => { i18n.toggle(); setTimeout(() => location.reload(), 50); });
+
+      const leads = storage.list('leads');
+      const deals = storage.list('deals');
+      const journal = storage.list('journal');
+      const coa = storage.list('coa');
+      const employees = storage.list('employees');
+      const videos = storage.list('mkt_videos');
+      const campaigns = storage.list('mkt_campaigns');
+      const tasks = storage.list('tasks');
+      const okrs = storage.list('okrs');
+      const krs = storage.list('krs');
+
+      const thisMonth = (d) => String(d || '').startsWith(monthKey);
+      const activeDeals = deals.filter(d => d.status === 'Aktif');
+      const redeemedMonth = deals.filter(d => d.status === 'Ditebus' && thisMonth(d.redeemed_at || d.due_date || d.created_at));
+      const leadMonth = leads.filter(l => thisMonth(l.created_at));
+      const redAlerts = activeDeals.filter(d => {
+        const diff = Math.ceil((new Date(d.due_date) - today) / 86400000);
+        return diff <= 3;
+      });
+
+      function accountBalance(codes) {
+        const set = new Set(codes);
+        return journal.reduce((sum, entry) => {
+          (entry.lines || []).forEach(line => {
+            if (set.has(String(line.account_code))) sum += Number(line.debit || 0) - Number(line.credit || 0);
+          });
+          return sum;
+        }, 0);
+      }
+      const cash = accountBalance(['11000', '11100', '11200']);
+      const revenueMonth = journal.reduce((sum, entry) => {
+        if (!thisMonth(entry.date)) return sum;
+        (entry.lines || []).forEach(line => { if (String(line.account_code || '').startsWith('4')) sum += Number(line.credit || 0) - Number(line.debit || 0); });
+        return sum;
+      }, 0);
+      const expenseMonth = journal.reduce((sum, entry) => {
+        if (!thisMonth(entry.date)) return sum;
+        (entry.lines || []).forEach(line => { if (String(line.account_code || '').startsWith('5')) sum += Number(line.debit || 0) - Number(line.credit || 0); });
+        return sum;
+      }, 0);
+      const netIncome = revenueMonth - expenseMonth;
+      const marketingSpend = storage.list('mkt_poster_batches').reduce((a,b)=>a+Number(b.print_cost||b.biaya_cetak||0)+Number(b.distribution_cost||b.biaya_distribusi||0),0)
+        + campaigns.reduce((a,b)=>a+Number(b.total_spend || b.budget_total || 0),0);
+      const conversion = leadMonth.length ? Math.round((redeemedMonth.length / leadMonth.length) * 100) : 0;
+      const okrAvg = okrs.length ? Math.round(okrs.reduce((acc, okr) => {
+        const list = krs.filter(kr => kr.okr_id === okr.id);
+        if (!list.length) return acc;
+        const score = list.reduce((a, kr) => a + Math.min(100, (Number(kr.current_value || kr.manual_progress_value || 0) / Math.max(Number(kr.target_value || 1), 1)) * 100) * Number(kr.weight || 1/list.length), 0);
+        return acc + score;
+      }, 0) / okrs.length) : 0;
+
+      document.getElementById('heroMainMetric').textContent = activeDeals.length;
+      document.getElementById('heroMainCaption').textContent = `${redAlerts.length} red alert · ${L.activeDeals}`;
+      document.getElementById('heroMiniGrid').innerHTML = [
+        ['Cash', money(cash)],
+        [L.leadMonth, leadMonth.length],
+        ['Net Income', money(netIncome)],
+        ['OKR Avg', okrAvg + '%']
+      ].map(([a,b]) => `<div><span>${a}</span><b>${b}</b></div>`).join('');
+
+      const modules = [
+        {key:'operational', icon:'🏍️', title:'Operational', desc: homeLang()==='zh'?'线索、计算器、活跃交易':'Leads, calculator, active deals', href:'operational/index.html', stats:[[L.leadMonth, leadMonth.length], [L.dealActive, activeDeals.length], [L.conversion, conversion + '%']]},
+        {key:'financial', icon:'💰', title:'Financial', desc: homeLang()==='zh'?'日记账、总账、报表':'Jurnal, buku besar, laporan', href:'financial/index.html', stats:[['Cash', money(cash)], [L.revenue, money(revenueMonth)], [L.netIncome, money(netIncome)]]},
+        {key:'marketing', icon:'📱', title:'Marketing', desc: homeLang()==='zh'?'海报、TikTok、Meta、合作':'Poster, TikTok, Meta, partner', href:'marketing/index.html', stats:[[L.spend, money(marketingSpend)], [L.videos, videos.length], [L.campaign, campaigns.length]]},
+        {key:'management', icon:'🎯', title:'Management', desc: homeLang()==='zh'?'OKR、KPI、员工、计划':'OKR, KPI, employee, planning', href:'management/index.html', stats:[[L.okr, okrAvg + '%'], [L.task, tasks.length], [L.employee, employees.length]]}
+      ];
+      document.getElementById('moduleCards').innerHTML = modules.map(m => `
+        <a class="home-module-card ${m.key}" href="${m.href}">
+          <div class="module-card-top"><span class="module-card-icon">${m.icon}</span><span class="module-status-dot"></span></div>
+          <h2>${m.title}</h2>
+          <p>${m.desc}</p>
+          <div class="module-stat-grid">${m.stats.map(([label,val]) => `<div><span>${label}</span><b>${val}</b></div>`).join('')}</div>
+          <strong class="module-open">${L.open}</strong>
+        </a>`).join('');
+
+      const kpis = (window.EmployeeKPIEngine?.getVisibleKPIs?.({role:'admin', employee_id:null}) || storage.list('kpis').filter(k => k.assigned_to_employee_id)).slice(0,4);
+      document.getElementById('salesKpiCards').innerHTML = kpis.length ? kpis.map(k => {
+        const ach = EmployeeKPIEngine.computeAchievement(k);
+        const emp = storage.get('employees', k.assigned_to_employee_id) || {};
+        const percent = Math.min(100, Math.round(ach.achievement_pct || 0));
+        const value = k.unit === 'rp' ? money(ach.achieved_value) : Number(ach.achieved_value || 0).toLocaleString('id-ID') + (k.unit === '%' ? '%' : '');
+        return `<div class="home-sales-kpi ${ach.color || 'yellow'}">
+          <div class="sales-kpi-head"><span class="avatar-mini">${(emp.name || '?').slice(0,1)}</span><div><b>${emp.name || 'Sales'}</b><small>${k.title || 'KPI'}</small></div></div>
+          <strong>${value}</strong>
+          <div class="progress"><i style="width:${percent}%"></i></div>
+          <small>Min ${money(ach.min_target)} · Max ${money(ach.max_target)}</small>
+        </div>`;
+      }).join('') : `<div class="home-empty-kpi"><b>${L.noKpi}</b><span>${L.noKpiDesc}</span></div>`;
+
+      const activities = [];
+      deals.slice(-3).reverse().forEach(d => activities.push({icon:'🏍️', title:`Deal ${d.status || '-'}`, desc:`${d.customer_name || '-'} · ${money(d.principal)}`, date:d.created_at || d.due_date}));
+      journal.slice(-3).reverse().forEach(j => activities.push({icon:'💰', title:j.journal_number || 'Jurnal', desc:j.description || '-', date:j.date}));
+      leads.slice(-2).reverse().forEach(l => activities.push({icon:'👤', title:'Lead baru', desc:l.customer_name || '-', date:l.created_at}));
+      document.getElementById('recentActivity').innerHTML = activities.slice(0,6).map(a => `<div class="home-activity-item"><span>${a.icon}</span><div><b>${a.title}</b><small>${a.desc}</small></div><time>${a.date || '-'}</time></div>`).join('') || `<div class="empty-state">${L.noActivity}</div>`;
+
+      const health = [
+        ['Operational', leads.length || deals.length, `${leads.length} leads · ${deals.length} deals`],
+        ['Financial', journal.length || coa.length, `${journal.length} journals · ${coa.length} COA`],
+        ['Marketing', videos.length || campaigns.length, `${videos.length} videos · ${campaigns.length} campaigns`],
+        ['Management', employees.length || okrs.length, `${employees.length} employees · ${okrs.length} OKR`]
+      ];
+      document.getElementById('dataHealth').innerHTML = health.map(([name, ok, detail]) => `<div class="health-item ${ok ? 'ok' : 'warn'}"><span></span><div><b>${name}</b><small>${detail}</small></div></div>`).join('');
+
+      document.getElementById('exportHomeJson')?.addEventListener('click', () => {
+        const blob = new Blob([storage.exportAll()], {type:'application/json'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `otokita-backup-${new Date().toISOString().slice(0,10)}.json`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+    });
+  </script>
+</body>
+</html>
